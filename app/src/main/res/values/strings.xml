@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">BloodEase</string>
+    <string name="createacc">Tạo Tài Khoản</string>
+    <string name="input_text">Full Name</string>
+    <string name="signupbtn">Đăng ký</string>
+    <string name="signinbtn">Đăng nhập</string>
+    <string name="otpbtn">Tiếp tục</string>
+    <string name="hot_tracks">Find donators</string>
+    <string name="usually_thi">Usually this process takes hours and days, but now once you log in you will be able to find donors immediately.</string>
+    <string name="skip_step">Skip Step</string>
+    <string name="a_i_m">10 provinces</string>
+    <string name="benefit1">Được cấp Giấy chứng nhận hiến máu tình nguyện</string>
+    <string name="benefit2">Được tư vấn về sức khỏe</string>
+    <string name="benefit3">Được bồi dưỡng trực tiếp</string>
+    <string name="benefit4">Được cấp Giấy chứng nhận hiến máu tình nguyện</string>
+    <string name="benefit1_content">
+        1. Giấy chứng nhận được trao cho người hiến máu sau mỗi lần hiến máu tình nguyện.\n
+        2. Có giá trị để được truyền máu miễn phí bằng số lượng máu đã hiến, khi người thân có nhu cầu sử dụng máu tại tất cả các cơ sở y tế công lập trên toàn quốc.\n
+        3. Người hiến máu cần xuất trình Giấy chứng nhận để làm cơ sở cho các cơ sở y tế thực hiện việc truyền máu miễn phí.\n
+    </string>
+    <string name="benefit2_content">
+        1. Được giải thích về quy trình hiến máu và các tai biến có thể xảy ra trong và sau khi hiến máu.\n
+        2. Được cung cấp thông tin về dấu hiệu, triệu chứng do nhiễm vi rút viêm gan, HIV và một số bệnh lây qua đường truyền máu, tình dục khác.\n
+        3. Được xét nghiệm sàng lọc một số vi rút lây qua đường truyền máu, tình dục (HIV, Giang mai, viêm gan, …) sau khi hiến máu.\n
+    </string>
+    <string name="benefit3_content">
+        1. Ăn nhẹ, nước uống tại chổ; tương đương 30.000 đồng (1 chai trà xanh không độ, 1 hộp chocopie 66gram, 1 hộp bánh Goute 35,5gram).\n
+        2. Nhận phần quà tặng giá trị tương đương:\n
+            \t- 100.000đ khi hiến máu 250ml.\n
+            \t- 150.000đ khi hiến máu 350ml.\n
+            \t- 180.000đ khi hiến máu 450ml.\n
+    </string>
+    <string name="benefit4_content">
+        1. Giấy chứng nhận được trao cho người hiến máu sau mỗi lần hiến máu tình nguyện.\n
+        2. Có giá trị để được truyền máu miễn phí bằng số lượng máu đã hiến, khi người thân có nhu cầu sử dụng máu tại tất cả các cơ sở y tế công lập trên toàn quốc.\n
+        3. Người hiến máu cần xuất trình Giấy chứng nhận để làm cơ sở cho các cơ sở y tế thực hiện việc truyền máu miễn phí.\n
+    </string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="title_activity_notification">NotificationActivity</string>
+    <string name="title_activity_bottom_navigation">BottomNavigationActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_notifications">Notifications</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_bottom_nav">BottomNavActivity</string>
+    <string name="title_dashboard">Dashboard</string>
+</resources>

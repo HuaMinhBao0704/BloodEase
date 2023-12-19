@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "991653464373",
+    "project_id": "bloodease-15754",
+    "storage_bucket": "bloodease-15754.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:991653464373:android:cb7f779459b044cfcee47c",
+        "android_client_info": {
+          "package_name": "com.example.bloodeasebackup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "991653464373-rcfhvs5eu6mi5cikcp58ov7j6hv33s66.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bloodeasebackup",
+            "certificate_hash": "384e42eed0b345a9a00355755c0de0a5a7d3b0fd"
+          }
+        },
+        {
+          "client_id": "991653464373-0k4ajthj2c4of3dd25m22mqv5rlvh2ag.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjRqNRHBe9lpxs9DWw4kswJxcBrbQLQ84"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "991653464373-0k4ajthj2c4of3dd25m22mqv5rlvh2ag.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

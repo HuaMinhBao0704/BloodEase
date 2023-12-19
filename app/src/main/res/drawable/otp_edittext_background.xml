@@ -1,0 +1,19 @@
+<!-- res/drawable/otp_edittext_background.xml -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Ô đang nhập -->
+    <item android:state_focused="true">
+        <shape>
+            <solid android:color="@android:color/white" />
+            <stroke android:color="@color/grey" android:width="2dp" />
+            <corners android:radius="10dp"/>
+        </shape>
+    </item>
+    <!-- Ô chưa nhập -->
+    <item>
+        <shape>
+            <solid android:color="@color/grey" />
+            <stroke android:color="@color/grey" android:width="2dp" />
+            <corners android:radius="10dp"/>
+        </shape>
+    </item>
+</selector>

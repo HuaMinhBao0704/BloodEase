@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F8F8"
+    tools:context=".fragments.HomeFragment">
+
+    <ImageView
+        android:id="@+id/homeLogo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_text" />
+
+    <TextView
+        android:id="@+id/currLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="36dp"
+        android:text="Ho Chi Minh, Viet Nam"
+        app:emojiCompatEnabled="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/locationIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintEnd_toStartOf="@+id/currLocation"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/location" />
+
+    <EditText
+        android:id="@+id/inputDate"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:drawableRight="@drawable/baseline_calendar_month_24"
+        android:ems="10"
+        android:hint="Chọn ngày"
+        android:inputType="date"
+        android:outlineSpotShadowColor="@color/btnColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dateAsk"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/dateAsk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="160dp"
+        android:text="Bạn cần đặt lịch vào thời gian nào?"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.211"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/earth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toStartOf="@+id/inputDate"
+        app:layout_constraintTop_toTopOf="@+id/bloodHand"
+        app:srcCompat="@drawable/earth" />
+
+    <ImageView
+        android:id="@+id/bloodHand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toStartOf="@+id/bloodUnit"
+        app:layout_constraintStart_toEndOf="@+id/earth"
+        app:layout_constraintTop_toBottomOf="@+id/inputDate"
+        app:srcCompat="@drawable/volunteer" />
+
+    <ImageView
+        android:id="@+id/bloodUnit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/inputDate"
+        app:layout_constraintTop_toTopOf="@+id/bloodHand"
+        app:srcCompat="@drawable/units_of_blood" />
+
+    <TextView
+        android:id="@+id/earthText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="10 provinces"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@+id/earth"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/earth"
+        app:layout_constraintTop_toBottomOf="@+id/earth" />
+
+    <TextView
+        android:id="@+id/bloodHandText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="1k volunteers"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@+id/bloodHand"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="@+id/bloodHand"
+        app:layout_constraintTop_toBottomOf="@+id/bloodHand" />
+
+    <TextView
+        android:id="@+id/bloodUnitText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="10k units of blood"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@+id/bloodUnit"
+        app:layout_constraintStart_toStartOf="@+id/bloodUnit"
+        app:layout_constraintTop_toBottomOf="@+id/bloodUnit" />
+
+    <TextView
+        android:id="@+id/hotContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="32dp"
+        android:text="Nội dung nóng"
+        android:textColor="#FB6F78"
+        android:textFontWeight="@integer/material_motion_duration_medium_2"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/earthText" />
+
+    <ImageView
+        android:id="@+id/getBloodProcessImg"
+        android:layout_width="340dp"
+        android:layout_height="145dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hotContent"
+        app:srcCompat="@drawable/quy_trinh_hm" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/benefitSlider"
+        android:layout_width="0dp"
+        android:layout_height="250dp"
+        android:background="#1C5291"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/getBloodProcessImg"
+        app:layout_constraintVertical_bias="0.118" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

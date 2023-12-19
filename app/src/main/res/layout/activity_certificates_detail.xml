@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4F8FB"
+    tools:context=".CertificatesDetailActivity">
+
+    <ImageView
+        android:id="@+id/backBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="45dp"
+        android:padding="8dp"
+        android:src="@drawable/arrow_left" />
+
+    <TextView
+        android:id="@+id/cnhm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="45dp"
+        android:gravity="center_horizontal|top"
+        android:text="Chứng nhận hiến máu"
+        android:textColor="@color/titlePink"
+        android:textSize="26sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tr_ng_th_i"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cnhm"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:gravity="top"
+        android:text="Trạng thái"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/x_c_nh_n"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cnhm"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="17dp"
+        android:layout_toEndOf="@+id/tr_ng_th_i"
+        android:gravity="top"
+        android:text="Đã xác nhận"
+        android:textColor="#126294"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+
+    <RelativeLayout
+        android:id="@+id/rectangle_cnhmct"
+        android:layout_width="371dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="150dp"
+        android:background="@drawable/rectangle_cnhmct"
+        android:elevation="6dp"
+        android:paddingVertical="10dp">
+
+        <TextView
+            android:id="@+id/ttcn_cnhm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="THÔNG TIN CÁ NHÂN"
+            android:textColor="@color/titlePink"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <View
+            android:id="@+id/line_cnhmct"
+            android:layout_width="371dp"
+            android:layout_height="1.5dp"
+            android:layout_below="@+id/ttcn_cnhm"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/line_cnhmct" />
+
+
+        <TextView
+            android:id="@+id/hovaten_cnhm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/line_cnhmct"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="10dp"
+            android:gravity="top"
+            android:lineSpacingExtra="2sp"
+            android:text="Họ và tên"
+            android:textAppearance="@style/titlettcn_cnhm" />
+
+
+        <TextView
+            android:id="@+id/name_cnhm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/hovaten_cnhm"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="2dp"
+            android:gravity="top"
+            android:text="My Duyen"
+            android:textAppearance="@style/ttcn_chmn" />
+
+        <View
+            android:id="@+id/line1_cnhmct"
+            android:layout_width="337dp"
+            android:layout_height="1.5dp"
+            android:layout_below="@+id/name_cnhm"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/line_cnhmct" />
+
+        <TextView
+            android:id="@+id/ngaysinh_cnhm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/line1_cnhmct"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="10dp"
+            android:gravity="top"
+            android:lineSpacingExtra="2sp"
+            android:text="Ngày sinh"
+            android:textAppearance="@style/titlettcn_cnhm" />
+
+        <TextView
+            android:id="@+id/dmy_cnhm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ngaysinh_cnhm"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="2dp"
+            android:gravity="top"
+            android:text="01/02/2002"
+            android:textAppearance="@style/ttcn_chmn" />
+
+        <View
+            android:id="@+id/line2_cnhmct"
+            android:layout_width="337dp"
+            android:layout_height="1.5dp"
+            android:layout_below="@+id/dmy_cnhm"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/line_cnhmct" />
+
+        <TextView
+            android:id="@+id/titlecccd_cnhm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/line2_cnhmct"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="10dp"
+            android:gravity="top"
+            android:lineSpacingExtra="2sp"
+            android:text="CCCD/CMND"
+            android:textAppearance="@style/titlettcn_cnhm" />
+
+        <TextView
+            android:id="@+id/cccd_cnhm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/titlecccd_cnhm"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="2dp"
+            android:gravity="top"
+            android:text="079302000888"
+            android:textAppearance="@style/ttcn_chmn" />
+
+        <View
+            android:id="@+id/line3_cnhmct"
+            android:layout_width="337dp"
+            android:layout_height="1.5dp"
+            android:layout_below="@+id/cccd_cnhm"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/line_cnhmct" />
+
+        <TextView
+            android:id="@+id/titlediachi_cnhm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/line3_cnhmct"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="10dp"
+            android:gravity="top"
+            android:lineSpacingExtra="2sp"
+            android:text="Địa chỉ"
+            android:textAppearance="@style/titlettcn_cnhm" />
+
+        <TextView
+            android:id="@+id/diachi_cnhm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/titlediachi_cnhm"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="2dp"
+            android:gravity="top"
+            android:text="78/35 PVC, F14, GV, TPHCM"
+            android:textAppearance="@style/ttcn_chmn" />
+
+        <View
+            android:id="@+id/line4_cnhmct"
+            android:layout_width="337dp"
+            android:layout_height="1.5dp"
+            android:layout_below="@+id/diachi_cnhm"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/line_cnhmct" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rectangle_tthm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="460dp"
+        android:background="@drawable/rectangle_cnhmct"
+        android:elevation="6dp">
+
+        <TextView
+            android:id="@+id/tthm_cnhm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="10dp"
+            android:gravity="top"
+            android:lineSpacingExtra="5sp"
+            android:text="THÔNG TIN HIẾN MÁU"
+            android:textColor="@color/titlePink"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <View
+            android:id="@+id/line5_cnhmct"
+            android:layout_width="371dp"
+            android:layout_height="1.5dp"
+            android:layout_below="@+id/tthm_cnhm"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/line_cnhmct" />
+
+
+        <TextView
+            android:id="@+id/coso_cnhm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/line5_cnhmct"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="10dp"
+            android:gravity="top"
+            android:lineSpacingExtra="2sp"
+            android:text="Cơ sở tiếp nhận"
+            android:textAppearance="@style/titlettcn_cnhm" />
+
+
+        <TextView
+            android:id="@+id/tencs_cnhm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/coso_cnhm"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="2dp"
+            android:gravity="top"
+            android:text="Bệnh viện Quân Y 175"
+            android:textAppearance="@style/ttcn_chmn" />
+
+        <View
+            android:id="@+id/line6_cnhmct"
+            android:layout_width="337dp"
+            android:layout_height="1.5dp"
+            android:layout_below="@+id/tencs_cnhm"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/line_cnhmct" />
+
+        <TextView
+            android:id="@+id/luongmau_cnhm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/line6_cnhmct"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="10dp"
+            android:gravity="top"
+            android:lineSpacingExtra="2sp"
+            android:text="Lượng máu cần hiến"
+            android:textAppearance="@style/titlettcn_cnhm" />
+
+        <TextView
+            android:id="@+id/luongmauhien_cnhm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/luongmau_cnhm"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="2dp"
+            android:gravity="top"
+            android:text="250ml"
+            android:textAppearance="@style/ttcn_chmn" />
+
+        <View
+            android:id="@+id/line7_cnhmct"
+            android:layout_width="337dp"
+            android:layout_height="1.5dp"
+            android:layout_below="@+id/luongmauhien_cnhm"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/line_cnhmct" />
+
+        <TextView
+            android:id="@+id/titledmyhm_cnhm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/line7_cnhmct"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="10dp"
+            android:gravity="top"
+            android:lineSpacingExtra="2sp"
+            android:text="Ngày hiến máu"
+            android:textAppearance="@style/titlettcn_cnhm" />
+
+        <TextView
+            android:id="@+id/dmyhienmau_cnhm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/titledmyhm_cnhm"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="2dp"
+            android:gravity="top"
+            android:text="01/03/2023"
+            android:textAppearance="@style/ttcn_chmn" />
+
+        <View
+            android:id="@+id/line8_cnhmct"
+            android:layout_width="337dp"
+            android:layout_height="1.5dp"
+            android:layout_below="@+id/dmyhienmau_cnhm"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/line_cnhmct" />
+
+        <TextView
+            android:id="@+id/titlenhommau_cnhm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/line8_cnhmct"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="10dp"
+            android:gravity="top"
+            android:lineSpacingExtra="2sp"
+            android:text="Nhóm máu"
+            android:textAppearance="@style/titlettcn_cnhm" />
+
+        <TextView
+            android:id="@+id/nhommau_cnhm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/titlenhommau_cnhm"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="2dp"
+            android:gravity="top"
+            android:text="B-"
+            android:textAppearance="@style/ttcn_chmn" />
+
+        <View
+            android:id="@+id/line9_cnhmct"
+            android:layout_width="337dp"
+            android:layout_height="1.5dp"
+            android:layout_below="@+id/nhommau_cnhm"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/line_cnhmct" />
+
+        <TextView
+            android:id="@+id/titleseri_cnhm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/line9_cnhmct"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="10dp"
+            android:gravity="top"
+            android:lineSpacingExtra="2sp"
+            android:text="Số seri"
+            android:textAppearance="@style/titlettcn_cnhm" />
+
+        <TextView
+            android:id="@+id/soseri_cnhm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/titleseri_cnhm"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="2dp"
+            android:gravity="top"
+            android:text="536826481"
+            android:textAppearance="@style/ttcn_chmn" />
+
+        <View
+            android:id="@+id/line10_cnhmct"
+            android:layout_width="337dp"
+            android:layout_height="1.5dp"
+            android:layout_below="@+id/soseri_cnhm"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/line_cnhmct" />
+
+
+    </RelativeLayout>
+</RelativeLayout>
