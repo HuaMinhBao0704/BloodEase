@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.example.bloodeasebackup.AboutUsActivity;
-import com.example.bloodeasebackup.BottomNavActivity;
 import com.example.bloodeasebackup.CertificatesActivity;
 import com.example.bloodeasebackup.PersonalInfoActivity;
 import com.example.bloodeasebackup.PrivacyActivity;
@@ -19,7 +18,7 @@ import com.example.bloodeasebackup.R;
 
 public class ProfileFragment extends Fragment {
 
-    ImageView basicInfoArrow, certificatesArrow,aboutUsArrow, privacyArrow;
+    ImageView basicInfoArrow, certificatesArrow, aboutUsArrow, privacyArrow, bookingArrow;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -41,6 +40,7 @@ public class ProfileFragment extends Fragment {
         certificatesArrow = view.findViewById(R.id.certificatesArrow);
         aboutUsArrow = view.findViewById(R.id.aboutUsArrow);
         privacyArrow = view.findViewById(R.id.privacyArrow);
+        bookingArrow = view.findViewById(R.id.bookingArrow);
 
         basicInfoArrow.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), PersonalInfoActivity.class);
@@ -61,6 +61,14 @@ public class ProfileFragment extends Fragment {
             Intent intent = new Intent(getActivity(), PrivacyActivity.class);
             startActivity(intent);
         });
+
+        /**
+         * TODO: Navigate to booking screen (Vy's task)
+        bookingArrow.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), BookingActivity.class);
+            startActivity(intent)
+        });
+        */
 
         return view;
     }

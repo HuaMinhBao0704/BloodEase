@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "991653464373",
+    "firebase_url": "https://bloodease-15754-default-rtdb.firebaseio.com",
     "project_id": "bloodease-15754",
     "storage_bucket": "bloodease-15754.appspot.com"
   },
@@ -22,7 +23,7 @@
           }
         },
         {
-          "client_id": "991653464373-0k4ajthj2c4of3dd25m22mqv5rlvh2ag.apps.googleusercontent.com",
+          "client_id": "991653464373-3b4921m96qvcjra4143ict7ccsdhthqs.apps.googleusercontent.com",
           "client_type": 3
         }
       ],

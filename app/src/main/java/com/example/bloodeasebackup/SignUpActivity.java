@@ -1,19 +1,60 @@
 package com.example.bloodeasebackup;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GoogleAuthProvider;
+
 public class SignUpActivity extends AppCompatActivity {
+    private static final String TAG = "GoogleSignUp";
+    private static final int RC_SIGN_IN = 9001;
     TextView directToSignIn;
     EditText registerFullName, registerEmail, registerPassword, registerConfirmPassword;
-    Button registerBtn;
+    Button registerBtn, googleRegisterBtn;
+    private FirebaseAuth mAuth;
+
+    // private GoogleSignInClient mGoogleSignInClient;
+    /** Google Sign In ActivityLauncher
+     private final ActivityResultLauncher<Intent> googleSignInLauncher =
+     registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+     if (result.getResultCode() == RESULT_OK) {
+     Intent data = result.getData();
+     Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+     handleGoogleSignInResult(task);
+     }
+     });
+     */
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser != null) {
+            reload();
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +67,16 @@ public class SignUpActivity extends AppCompatActivity {
         registerPassword = findViewById(R.id.registerPassword);
         registerConfirmPassword = findViewById(R.id.registerConfirmPassword);
         registerBtn = findViewById(R.id.registerBtn);
+        googleRegisterBtn = findViewById(R.id.googleRegisterBtn);
+
+        /** Google Sign In declarations
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+        */
+        mAuth = FirebaseAuth.getInstance();
 
         directToSignIn.setOnClickListener(view -> {
             Intent intent = new Intent(SignUpActivity.this, SignInActivity.class);
@@ -34,19 +85,82 @@ public class SignUpActivity extends AppCompatActivity {
 
         registerBtn.setOnClickListener(view -> {
             if (validateRegisterFullName() && validateRegisterEmail() && validatePassword()) {
-                Toast.makeText(this, "OK!", Toast.LENGTH_SHORT).show();
+                // create new account
+                String email = registerEmail.getText().toString();
+                String password = registerPassword.getText().toString();
+                createAccount(email, password);
 
-                // TODO: Sign Up logic goes here
+                // then show success notification and navigate to Sign In activity
+                Toast.makeText(this, "Create new Account OK!!!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(SignUpActivity.this, SignInActivity.class);
+                startActivity(intent);
             } else {
                 Toast.makeText(this, "NO OK!", Toast.LENGTH_SHORT).show();
             }
         });
+
+        googleRegisterBtn.setOnClickListener(v -> {
+            Toast.makeText(this, "Not developing yet!", Toast.LENGTH_SHORT).show();
+        });
     }
 
-    // TODO: validate sign up form
+    /** Email & Password Register handlers */
+    private void createAccount(String email, String password) {
+        // [START create_user_with_email]
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "createUserWithEmail:success");
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            updateUI(user);
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                            Toast.makeText(SignUpActivity.this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+                            updateUI(null);
+                        }
+                    }
+                });
+        // [END create_user_with_email]
+    }
+
+    /** Google Sign In handlers
+    private void signIn() {
+        Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+        googleSignInLauncher.launch(signInIntent);
+    }
+    private void handleGoogleSignInResult(Task<GoogleSignInAccount> task) {
+        try {
+            GoogleSignInAccount account = task.getResult(ApiException.class);
+            Log.d(TAG, "firebaseAuthWithGoogle:" + account.getId());
+            firebaseAuthWithGoogle(account.getIdToken());
+        } catch (ApiException e) {
+            Log.w(TAG, e);
+        }
+    }
+    private void firebaseAuthWithGoogle(String idToken) {
+        AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()) {
+                        Log.d(TAG, "signInWithCredential:success");
+                        FirebaseUser user = mAuth.getCurrentUser();
+                        updateUI(user);
+                    } else {
+                        Log.w(TAG, "signInWithCredential:failure", task.getException());
+                        updateUI(null);
+                    }
+                });
+    }
+    */
+
+    /** Validators */
     public boolean validateRegisterFullName() {
         String fullNameInput = registerFullName.getText().toString();
-
         if (fullNameInput.isEmpty()) {
             registerFullName.setError("Full name cannot be empty!");
             return false;
@@ -55,10 +169,8 @@ public class SignUpActivity extends AppCompatActivity {
             return true;
         }
     }
-
     public boolean validateRegisterEmail() {
         String emailInput = registerEmail.getText().toString();
-
         if (emailInput.isEmpty()) {
             registerEmail.setError("Email cannot be empty!");
             return false;
@@ -70,11 +182,9 @@ public class SignUpActivity extends AppCompatActivity {
             return true;
         }
     }
-
     public boolean validatePassword() {
         String passwordInput = registerPassword.getText().toString();
         String confirmPasswordInput = registerConfirmPassword.getText().toString();
-
         if (passwordInput.isEmpty()) {
             registerPassword.setError("Password cannot be empty");
             return false;
@@ -92,5 +202,10 @@ public class SignUpActivity extends AppCompatActivity {
             registerConfirmPassword.setError(null);
             return true;
         }
+    }
+    private void updateUI(FirebaseUser user) {
+        // Your UI update logic here
+    }
+    private void reload() {
     }
 }
