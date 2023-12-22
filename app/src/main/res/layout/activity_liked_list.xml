@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4F8FB"
+    tools:context=".LikedListActivity">
+
+    <!---Nút back-->
+    <ImageButton
+        android:id="@+id/arrow_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/arrow_left"
+        android:background="#F4F8FB"
+        android:onClick="onBackPressed"
+        android:padding="8dp" />
+
+    <!---Title-->
+    <TextView
+        android:id="@+id/bvgn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="50dp"
+        android:text="BỆNH VIỆN GẦN NHẤT"
+        android:textColor="@color/titlePink"
+        android:textStyle="bold"
+        android:textSize="26sp"
+        android:gravity="center_horizontal|top" />
+
+    <!---Lịch-->
+    <RelativeLayout
+        android:id="@+id/datePickerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bvgn"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        >
+
+    <!-- Date text -->
+        <TextView
+            android:id="@+id/selectedDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="06/11/2023"
+            android:textSize="16sp"
+            android:textColor="#BCC0C0"
+            android:layout_marginStart="85dp" />
+
+            <!-- Calendar icon -->
+        <ImageView
+            android:id="@+id/calendarIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@drawable/calendar"
+            android:padding="8dp"
+            android:layout_marginStart="270dp"/>
+        <View
+            android:id="@+id/line_68"
+            android:layout_width="230dp"
+            android:layout_height="1dp"
+            android:layout_below="@id/calendarIcon"
+            android:layout_centerHorizontal="true"
+            android:background="#F07279"
+            />
+    </RelativeLayout>
+
+    <!---Bệnh viện gần nhất-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/bvgn"
+        android:layout_marginTop="100dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <!-- Bệnh viện 1 -->
+            <LinearLayout
+                android:id="@+id/rectangle_bvgn"
+                android:layout_width="371dp"
+                android:layout_height="271dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="0dp"
+                android:orientation="horizontal"
+                android:background="@drawable/rectangle_cnhmct"
+                android:elevation="1dp">
+
+                <LinearLayout
+                    android:id="@+id/rectangle_bvgnct"
+                    android:layout_width="wrap_content"
+                    android:layout_height="271dp"
+                    android:orientation="vertical"
+                    android:background="@drawable/rectangle_cnhmct"
+                    >
+
+                    <TextView
+                        android:id="@+id/ten_bvgn"
+                        android:layout_width="201dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="60dp"
+                        android:layout_marginStart="10dp"
+                        android:text="Bệnh viện truyền máu - Huyết học TP HCM"
+                        android:textAppearance="@style/ten_bvgn" />
+
+                    <TextView
+                        android:id="@+id/diachi_bvgn"
+                        android:layout_marginStart="10dp"
+                        android:layout_width="201dp"
+                        android:layout_height="32dp"
+                        android:layout_marginTop="6dp"
+                        android:text="118 Hồng Bàng, Q.5, Tp. Hồ Chí Minh."
+                        android:textAppearance="@style/diachi_bvgn" />
+
+                    <!-- Ngày đã chọn -->
+                    <TextView
+                        android:id="@+id/ngay_da_chon"
+                        android:layout_width="201dp"
+                        android:layout_height="16dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="6dp"
+                        android:text="Ngày đã chọn: 06/11/2023"
+                        android:textAppearance="@style/ngay_da_chon_bvgn" />
+
+                    <!-- Số người đã đăng ký -->
+                    <TextView
+                        android:id="@+id/so_nguoi_da_dang_ky"
+                        android:layout_width="201dp"
+                        android:layout_height="23dp"
+                        android:layout_marginStart="10dp"
+                        android:text="178/205 người đăng ký"
+                        android:layout_marginTop="6dp"
+                        android:textAppearance="@style/nguoi_da_dkhm" />
+
+                    <!-- Nút đặt lịch -->
+                    <Button
+                        android:id="@+id/btn_datlich_bvgn"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        style="@style/TextAppearance.MaterialComponents.Button"
+                        android:backgroundTint="#FB6F78"
+                        android:textColor="#FFFFFF"
+                        android:layout_marginLeft="41dp"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/btn_datlich_bvgn"
+                        />
+
+                </LinearLayout>
+                <!-- Phần hình ảnh logo bệnh viện -->
+                <ImageView
+                    android:id="@+id/img_bvgn"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/bvtmhh"
+                    android:scaleType="fitCenter"/>
+            </LinearLayout>
+
+            <!-- Bệnh viện 2 -->
+            <LinearLayout
+                android:id="@+id/rectangle_bvgn_1"
+                android:layout_width="371dp"
+                android:layout_height="271dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal"
+                android:background="@drawable/rectangle_cnhmct"
+                android:elevation="1dp">
+
+                <LinearLayout
+                    android:id="@+id/rectangle_bvgnct_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="271dp"
+                    android:orientation="vertical"
+                    android:background="@drawable/rectangle_cnhmct"
+                    >
+
+                    <TextView
+                        android:id="@+id/ten_bvgn_1"
+                        android:layout_width="201dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="60dp"
+                        android:layout_marginStart="10dp"
+                        android:text="Hiến máu nhận đạo Bệnh viện 175"
+                        android:textAppearance="@style/ten_bvgn" />
+
+                    <TextView
+                        android:id="@+id/diachi_bvgn_1"
+                        android:layout_marginStart="10dp"
+                        android:layout_width="201dp"
+                        android:layout_height="32dp"
+                        android:layout_marginTop="6dp"
+                        android:text="786 Nguyễn Kiệm, P.3, Q.Gò Vấp,TP. Hồ Chí Minh"
+                        android:textAppearance="@style/diachi_bvgn" />
+
+                    <!-- Ngày đã chọn -->
+                    <TextView
+                        android:id="@+id/ngay_da_chon_1"
+                        android:layout_width="201dp"
+                        android:layout_height="16dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="6dp"
+                        android:text="Ngày đã chọn: 06/11/2023"
+                        android:textAppearance="@style/ngay_da_chon_bvgn" />
+
+                    <!-- Số người đã đăng ký -->
+                    <TextView
+                        android:id="@+id/so_nguoi_da_dang_ky_1"
+                        android:layout_width="201dp"
+                        android:layout_height="23dp"
+                        android:layout_marginStart="10dp"
+                        android:text="78/200 người đăng ký"
+                        android:layout_marginTop="6dp"
+                        android:textAppearance="@style/nguoi_da_dkhm" />
+
+                    <!-- Nút đặt lịch -->
+                    <Button
+                        android:id="@+id/btn_datlich_bvgn_1"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        style="@style/TextAppearance.MaterialComponents.Button"
+                        android:backgroundTint="#FB6F78"
+                        android:textColor="#FFFFFF"
+                        android:layout_marginLeft="41dp"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/btn_datlich_bvgn"
+                        />
+
+                </LinearLayout>
+                <!-- Phần hình ảnh logo bệnh viện -->
+                <ImageView
+                    android:id="@+id/img_bvgn_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/bv175"
+                    android:scaleType="fitCenter"/>
+            </LinearLayout>
+
+            <!-- Bệnh vine 3 -->
+            <LinearLayout
+                android:id="@+id/rectangle_bvgn_2"
+                android:layout_width="371dp"
+                android:layout_height="271dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal"
+                android:background="@drawable/rectangle_cnhmct"
+                android:elevation="1dp">
+
+                <LinearLayout
+                    android:id="@+id/rectangle_bvgnct_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="271dp"
+                    android:orientation="vertical"
+                    android:background="@drawable/rectangle_cnhmct"
+                    >
+
+                    <TextView
+                        android:id="@+id/ten_bvgn_2"
+                        android:layout_width="201dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="60dp"
+                        android:layout_marginStart="10dp"
+                        android:text="Trung tâm hiến máu nhân đạo TP.HCM"
+                        android:textAppearance="@style/ten_bvgn" />
+
+                    <TextView
+                        android:id="@+id/diachi_bvgn_2"
+                        android:layout_marginStart="10dp"
+                        android:layout_width="201dp"
+                        android:layout_height="32dp"
+                        android:layout_marginTop="6dp"
+                        android:text="106 Thiên Phước, Phường 9, Tân Bình, Thành phố Hồ Chí Minh"
+                        android:textAppearance="@style/diachi_bvgn" />
+
+                    <!-- Ngày đã chọn -->
+                    <TextView
+                        android:id="@+id/ngay_da_chon_2"
+                        android:layout_width="201dp"
+                        android:layout_height="16dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="6dp"
+                        android:text="Ngày đã chọn: 06/11/2023"
+                        android:textAppearance="@style/ngay_da_chon_bvgn" />
+
+                    <!-- Số người đã đăng ký -->
+                    <TextView
+                        android:id="@+id/so_nguoi_da_dang_ky_2"
+                        android:layout_width="201dp"
+                        android:layout_height="23dp"
+                        android:layout_marginStart="10dp"
+                        android:text="288/300 người đăng ký"
+                        android:layout_marginTop="6dp"
+                        android:textAppearance="@style/nguoi_da_dkhm" />
+
+                    <!-- Nút đặt lịch -->
+                    <Button
+                        android:id="@+id/btn_datlich_bvgn_2"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        style="@style/TextAppearance.MaterialComponents.Button"
+                        android:backgroundTint="#FB6F78"
+                        android:textColor="#FFFFFF"
+                        android:layout_marginLeft="41dp"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/btn_datlich_bvgn"
+                        />
+
+                </LinearLayout>
+                <!-- Phần hình ảnh logo bệnh viện -->
+                <ImageView
+                    android:id="@+id/img_bvgn_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/hoichuthapdo_"
+                    android:scaleType="fitCenter"/>
+            </LinearLayout>
+
+            <!-- Bệnh viện 4 -->
+            <LinearLayout
+                android:id="@+id/rectangle_bvgn_3"
+                android:layout_width="371dp"
+                android:layout_height="271dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal"
+                android:background="@drawable/rectangle_cnhmct"
+                android:elevation="1dp">
+
+                <LinearLayout
+                    android:id="@+id/rectangle_bvgnct_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="271dp"
+                    android:orientation="vertical"
+                    android:background="@drawable/rectangle_cnhmct"
+                    >
+
+                    <TextView
+                        android:id="@+id/ten_bvgn_3"
+                        android:layout_width="201dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="60dp"
+                        android:layout_marginStart="10dp"
+                        android:text="Trung tâm truyền máu Chợ Rẫy"
+                        android:textAppearance="@style/ten_bvgn" />
+
+                    <TextView
+                        android:id="@+id/diachi_bvgn_3"
+                        android:layout_marginStart="10dp"
+                        android:layout_width="201dp"
+                        android:layout_height="32dp"
+                        android:layout_marginTop="6dp"
+                        android:text="201B nguyễn Chí Thanh, phường 12, quận 5, Thành phố Hồ Chí Minh"
+                        android:textAppearance="@style/diachi_bvgn" />
+
+                    <!-- Ngày đã chọn -->
+                    <TextView
+                        android:id="@+id/ngay_da_chon_3"
+                        android:layout_width="201dp"
+                        android:layout_height="16dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="6dp"
+                        android:text="Ngày đã chọn: 06/11/2023"
+                        android:textAppearance="@style/ngay_da_chon_bvgn" />
+
+                    <!-- Số người đã đăng ký -->
+                    <TextView
+                        android:id="@+id/so_nguoi_da_dang_ky_3"
+                        android:layout_width="201dp"
+                        android:layout_height="23dp"
+                        android:layout_marginStart="10dp"
+                        android:text="55/170 người đăng ký"
+                        android:layout_marginTop="6dp"
+                        android:textAppearance="@style/nguoi_da_dkhm" />
+
+                    <!-- Nút đặt lịch -->
+                    <Button
+                        android:id="@+id/btn_datlich_bvgn_4"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        style="@style/TextAppearance.MaterialComponents.Button"
+                        android:backgroundTint="#FB6F78"
+                        android:textColor="#FFFFFF"
+                        android:layout_marginLeft="41dp"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/btn_datlich_bvgn"
+                        />
+
+                </LinearLayout>
+                <!-- Phần hình ảnh logo bệnh viện -->
+                <ImageView
+                    android:id="@+id/img_bvgn_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/bv_choray"
+                    android:scaleType="fitCenter"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+</RelativeLayout>
