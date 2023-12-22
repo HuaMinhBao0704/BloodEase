@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4F8FB"
+    tools:context=".SelectBloodActivity">
+
+    <!-- Nút back -->
+    <ImageView
+        android:id="@+id/arrow_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/arrow_left"
+        android:onClick="onBackPressed"
+        android:padding="8dp" />
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/title_search_blood"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="50dp"
+        android:text="CHỌN NHÓM MÁU"
+        android:textColor="@color/titlePink"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:gravity="center_horizontal|top" />
+
+
+    <!-- Các nhóm máu -->
+    <RelativeLayout
+        android:id="@+id/bloodGroup"
+        android:layout_width="389dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title_search_blood"
+        android:layout_marginTop="68dp"
+        android:layout_marginStart="12dp"
+       >
+
+        <!-- Nhóm máu + -->
+        <RelativeLayout
+            android:id="@+id/rectangle_bloodplus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:elevation="1dp"
+            android:orientation="horizontal">
+
+            <!-- Nhóm máu AB+ -->
+            <RelativeLayout
+                android:id="@+id/rectangle_ABplus"
+                android:layout_width="87dp"
+                android:layout_height="127dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/rectangle_blood"
+                android:elevation="1dp"
+                android:orientation="horizontal"
+                >
+                <View
+                    android:id="@+id/ABplus"
+                    android:layout_width="43dp"
+                    android:layout_height="54dp"
+                    android:layout_marginTop="19dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/abplus"
+                    />
+                <TextView
+                    android:id="@+id/text_ABplus"
+                    android:layout_width="59dp"
+                    android:layout_height="36dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="80dp"
+                    android:text="@string/textABplus"
+                    android:textAppearance="@style/textplus"
+                    android:lineSpacingExtra="4sp"
+                    android:gravity="center_horizontal|center_vertical"
+                    />
+            </RelativeLayout>
+
+            <!-- Nhóm máu A+ -->
+            <RelativeLayout
+                android:id="@+id/rectangle_Aplus"
+                android:layout_width="87dp"
+                android:layout_height="127dp"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/rectangle_ABplus"
+                android:background="@drawable/rectangle_blood"
+                android:elevation="1dp"
+                android:orientation="horizontal"
+                >
+                <View
+                    android:id="@+id/Aplus"
+                    android:layout_width="43dp"
+                    android:layout_height="54dp"
+                    android:layout_marginTop="19dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/aplus"
+                    />
+                <TextView
+                    android:id="@+id/text_Aplus"
+                    android:layout_width="59dp"
+                    android:layout_height="36dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="80dp"
+                    android:text="@string/textAplus"
+                    android:textAppearance="@style/textplus"
+                    android:lineSpacingExtra="4sp"
+                    android:gravity="center_horizontal|center_vertical"
+                    />
+            </RelativeLayout>
+
+            <!-- Nhóm máu B+ -->
+            <RelativeLayout
+                android:id="@+id/rectangle_Bplus"
+                android:layout_width="87dp"
+                android:layout_height="127dp"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/rectangle_Aplus"
+                android:background="@drawable/rectangle_blood"
+                android:elevation="1dp"
+                android:orientation="horizontal"
+                >
+                <View
+                    android:id="@+id/Bplus"
+                    android:layout_width="43dp"
+                    android:layout_height="54dp"
+                    android:layout_marginTop="19dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/bplus"
+                    />
+                <TextView
+                    android:id="@+id/text_Bplus"
+                    android:layout_width="59dp"
+                    android:layout_height="36dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="80dp"
+                    android:text="@string/textBplus"
+                    android:textAppearance="@style/textplus"
+                    android:lineSpacingExtra="4sp"
+                    android:gravity="center_horizontal|center_vertical"
+                    />
+            </RelativeLayout>
+
+            <!-- Nhóm máu O+ -->
+            <RelativeLayout
+                android:id="@+id/rectangle_Oplus"
+                android:layout_width="87dp"
+                android:layout_height="127dp"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/rectangle_Bplus"
+                android:background="@drawable/rectangle_blood"
+                android:elevation="1dp"
+                android:orientation="horizontal"
+                >
+                <View
+                    android:id="@+id/Oplus"
+                    android:layout_width="43dp"
+                    android:layout_height="54dp"
+                    android:layout_marginTop="19dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/oplus"
+                    />
+                <TextView
+                    android:id="@+id/text_Oplus"
+                    android:layout_width="59dp"
+                    android:layout_height="36dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="80dp"
+                    android:text="@string/textOplus"
+                    android:textAppearance="@style/textplus"
+                    android:lineSpacingExtra="4sp"
+                    android:gravity="center_horizontal|center_vertical"
+                    />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <!-- Nhóm máu - -->
+        <RelativeLayout
+            android:id="@+id/rectangle_blood"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rectangle_bloodplus"
+            android:layout_marginTop="30dp"
+            android:elevation="1dp"
+            android:orientation="horizontal">
+
+            <!-- Nhóm máu AB- -->
+            <RelativeLayout
+                android:id="@+id/rectangle_AB"
+                android:layout_width="87dp"
+                android:layout_height="127dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/rectangle_blood"
+                android:elevation="1dp"
+                android:orientation="horizontal"
+                >
+                <View
+                    android:id="@+id/AB"
+                    android:layout_width="43dp"
+                    android:layout_height="54dp"
+                    android:layout_marginTop="19dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/blood_ab"
+                    />
+                <TextView
+                    android:id="@+id/text_AB"
+                    android:layout_width="59dp"
+                    android:layout_height="36dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="80dp"
+                    android:text="@string/textAB"
+                    android:textAppearance="@style/textplus"
+                    android:lineSpacingExtra="4sp"
+                    android:gravity="center_horizontal|center_vertical"
+                    />
+            </RelativeLayout>
+
+            <!-- Nhóm máu A- -->
+            <RelativeLayout
+                android:id="@+id/rectangle_A"
+                android:layout_width="87dp"
+                android:layout_height="127dp"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/rectangle_AB"
+                android:background="@drawable/rectangle_blood"
+                android:elevation="1dp"
+                android:orientation="horizontal"
+                >
+                <View
+                    android:id="@+id/A"
+                    android:layout_width="43dp"
+                    android:layout_height="54dp"
+                    android:layout_marginTop="19dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/blood_a"
+                    />
+                <TextView
+                    android:id="@+id/text_A"
+                    android:layout_width="59dp"
+                    android:layout_height="36dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="80dp"
+                    android:text="@string/textA"
+                    android:textAppearance="@style/textplus"
+                    android:lineSpacingExtra="4sp"
+                    android:gravity="center_horizontal|center_vertical"
+                    />
+            </RelativeLayout>
+
+            <!-- Nhóm máu B- -->
+            <RelativeLayout
+                android:id="@+id/rectangle_B"
+                android:layout_width="87dp"
+                android:layout_height="127dp"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/rectangle_A"
+                android:background="@drawable/rectangle_blood"
+                android:elevation="1dp"
+                android:orientation="horizontal"
+                >
+                <View
+                    android:id="@+id/B"
+                    android:layout_width="43dp"
+                    android:layout_height="54dp"
+                    android:layout_marginTop="19dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/blood_b"
+                    />
+                <TextView
+                    android:id="@+id/text_B"
+                    android:layout_width="59dp"
+                    android:layout_height="36dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="80dp"
+                    android:text="@string/textB"
+                    android:textAppearance="@style/textplus"
+                    android:lineSpacingExtra="4sp"
+                    android:gravity="center_horizontal|center_vertical"
+                    />
+            </RelativeLayout>
+
+            <!-- Nhóm máu O- -->
+            <RelativeLayout
+                android:id="@+id/rectangle_O"
+                android:layout_width="87dp"
+                android:layout_height="127dp"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/rectangle_B"
+                android:background="@drawable/rectangle_blood"
+                android:elevation="1dp"
+                android:orientation="horizontal"
+                >
+                <View
+                    android:id="@+id/O"
+                    android:layout_width="43dp"
+                    android:layout_height="54dp"
+                    android:layout_marginTop="19dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/blood_o"
+                    />
+                <TextView
+                    android:id="@+id/text_O"
+                    android:layout_width="59dp"
+                    android:layout_height="36dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="80dp"
+                    android:text="@string/textO"
+                    android:textAppearance="@style/textplus"
+                    android:lineSpacingExtra="4sp"
+                    android:gravity="center_horizontal|center_vertical"
+                    />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+    <!-- Lượng máu -->
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/field"
+        android:layout_width="359dp"
+        android:layout_height="73dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="500dp"
+        android:elevation="4dp"
+        android:background="#FFFFFF">
+
+        <View
+            android:id="@+id/icon_blood"
+            android:layout_width="17dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="21dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/iconblood"
+            />
+
+        <View
+            android:id="@+id/line_1"
+            android:layout_width="0.5dp"
+            android:layout_height="25.5dp"
+            android:layout_toEndOf="@id/icon_blood"
+            android:layout_marginStart="26dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/line_short"
+            />
+
+        <TextView
+            android:id="@+id/unit_of_blood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="84dp"
+            android:layout_marginTop="18dp"
+            android:text="@string/unitofblood"
+            android:textAppearance="@style/unitofblood"
+            android:lineSpacingExtra="4sp"
+            android:gravity="center_vertical"
+            />
+
+        <TextView
+            android:id="@+id/amount_of_blood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="84dp"
+            android:layout_marginTop="37dp"
+            android:text="@string/amount_of_blood"
+            android:textAppearance="@style/amount_of_blood"
+            android:lineSpacingExtra="4sp"
+            android:gravity="center_vertical"
+            />
+
+
+</RelativeLayout>
+
+    <!-- Nút tìm kiếm -->
+    <Button
+        android:id="@+id/Search_Blood_Button"
+        style="@style/TextAppearance.MaterialComponents.Button"
+        android:layout_width="389dp"
+        android:layout_height="wrap_content"
+        android:text="Tìm kiếm"
+        android:layout_below="@id/bloodGroup"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="200dp"
+        android:backgroundTint="#FB6F78"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        />
+
+</RelativeLayout>

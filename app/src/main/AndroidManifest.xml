@@ -12,38 +12,50 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BloodEaseBackup"
         tools:targetApi="31">
+
+
+        <!--        <activity-->
+<!--            android:name=".AboutUsActivity"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".PrivacyActivity"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".CertificatesDetailActivity"-->
+<!--            android:exported="false" />-->
+
+<!--        <activity-->
+<!--            android:name=".PersonalInfoActivity"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".OTPActivity"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".ForgotPasswordActivity"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".BottomNavActivity"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".SignUpActivity"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".SignInActivity"-->
+<!--            android:exported="false" />-->
         <activity
-            android:name=".AboutUsActivity"
+            android:name=".ChooseHospitalsActivity"
             android:exported="false" />
         <activity
-            android:name=".PrivacyActivity"
-            android:exported="false" />
-        <activity
-            android:name=".CertificatesDetailActivity"
+            android:name=".LikedListActivity"
             android:exported="false" />
         <activity
             android:name=".CertificatesActivity"
             android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".LikedListActivity"-->
+<!--            android:exported="false" />-->
         <activity
-            android:name=".PersonalInfoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".OTPActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ForgotPasswordActivity"
-            android:exported="false" />
-        <activity
-            android:name=".BottomNavActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SignUpActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SignInActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SplashScreenActivity"
+            android:name=".SelectBloodActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -51,9 +63,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".OnboardActivity"
-            android:exported="true" />
+<!--        <activity-->
+<!--            android:name=".OnboardActivity"-->
+<!--            android:exported="true" />-->
     </application>
 
 </manifest>
