@@ -1,7 +1,10 @@
 package com.example.bloodeasebackup.fragments;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.example.bloodeasebackup.SelectBloodActivity;
@@ -45,9 +48,9 @@ public class HomeFragment extends Fragment {
         Calendar calendar = Calendar.getInstance();
 
         // Khởi tạo DatePickerDialog
-        DatePickerDialog datePickerDialog = new DatePickerDialog(
+        new DatePickerDialog(
                 requireContext(),
-                R.style.DatePickerTheme, // Để sử dụng theme tùy chỉnh
+                R.style.DatePickerTheme,
                 (view, year, month, dayOfMonth) -> {
                     // Format ngày để hiển thị trong EditText
                     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
@@ -59,26 +62,23 @@ public class HomeFragment extends Fragment {
                     inputDate.setText(formattedDate);
 
                     // Chuyển hướng sang LikedListActivity
-                    navigateToSelectBloodActivity();
+                    navigateToLikedListActivity(formattedDate);
                 },
                 calendar.get(Calendar.YEAR),
                 calendar.get(Calendar.MONTH),
                 calendar.get(Calendar.DAY_OF_MONTH)
-        );
-
-        // Hiển thị DatePickerDialog
-        datePickerDialog.show();
+        ).show();
     }
 
-    private void navigateToSelectBloodActivity() {
-
-
+    private void navigateToLikedListActivity(String selectedDate) {
+        // Tạo Intent để chuyển hướng từ HomeFragment sang LikedListActivity
         Intent intent = new Intent(requireContext(), SelectBloodActivity.class);
 
-        // (Nếu có) Đưa dữ liệu cần thiết sang SelectBloodActivity
-        // intent.putExtra("KEY", value);
+        // Đưa ngày đã chọn vào Intent
+        intent.putExtra("selectedDate", selectedDate);
 
         // Thực hiện chuyển hướng
         startActivity(intent);
     }
+
 }

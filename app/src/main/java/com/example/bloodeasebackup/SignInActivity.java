@@ -32,13 +32,13 @@ public class SignInActivity extends AppCompatActivity {
 
         loginBtn.setOnClickListener(view -> {
             if (validateLoginEmail() && validateLoginPassword()) {
-                Toast.makeText(this, "OK!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
 
                 // TODO: Sign In logic goes here
                 Intent intent = new Intent(SignInActivity.this, BottomNavActivity.class);
                 startActivity(intent);
             } else {
-                Toast.makeText(this, "NO OK!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Đăng nhập thất bại!", Toast.LENGTH_SHORT).show();
             }
         });
     }

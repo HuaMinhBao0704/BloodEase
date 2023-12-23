@@ -34,11 +34,11 @@ public class SignUpActivity extends AppCompatActivity {
 
         registerBtn.setOnClickListener(view -> {
             if (validateRegisterFullName() && validateRegisterEmail() && validatePassword()) {
-                Toast.makeText(this, "OK!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
 
                 // TODO: Sign Up logic goes here
             } else {
-                Toast.makeText(this, "NO OK!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Đăng nhập thất bại!", Toast.LENGTH_SHORT).show();
             }
         });
     }

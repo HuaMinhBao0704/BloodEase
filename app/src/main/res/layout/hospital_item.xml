@@ -19,7 +19,7 @@
         <TextView
             android:id="@+id/bvgn"
             android:layout_width="201dp"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
             android:layout_marginStart="10dp"
             android:textAppearance="@style/name_hospital" />
@@ -53,7 +53,7 @@
         <!-- Nút đặt lịch -->
         <Button
             android:id="@+id/btn_datlich_bvgn"
-            android:layout_width="120dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/TextAppearance.MaterialComponents.Button"
             android:backgroundTint="#FB6F78"

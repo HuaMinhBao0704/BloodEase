@@ -84,17 +84,19 @@
                         android:background="@drawable/logocnhm" />
 
                     <!-- Usage -->
+
+                    <!-- Usage -->
                     <TextView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_marginTop="50dp"
-                        android:layout_marginLeft="22dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="60dp"
                         android:gravity="center_horizontal|center_vertical"
                         android:text="250ml"
                         android:textColor="@color/titlePink"
+                        android:textSize="12sp"
                         android:textStyle="bold" />
 
-                    <!-- Usage -->
                     <TextView
 
                         android:layout_width="wrap_content"
@@ -107,19 +109,19 @@
                         android:textColor="#FFA927" />
 
                     <TextView
-                        android:layout_width="296dp"
-                        android:layout_height="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
                         android:layout_marginLeft="88dp"
                         android:layout_marginTop="28dp"
                         android:gravity="top"
                         android:text="Bệnh viện truyền máu - Huyết học TP HCM"
-                        android:textSize="15sp"
+                        android:textSize="13sp"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:layout_width="201dp"
-                        android:layout_height="16dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
                         android:layout_marginLeft="88dp"
                         android:layout_marginTop="57dp"
@@ -127,8 +129,8 @@
                         android:text="Số seri: 1275749362" />
 
                     <TextView
-                        android:layout_width="201dp"
-                        android:layout_height="16dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
                         android:layout_marginLeft="88dp"
                         android:layout_marginTop="79dp"
