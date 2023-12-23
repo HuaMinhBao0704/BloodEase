@@ -24,11 +24,18 @@ import com.squareup.picasso.Picasso;
 public class LikedListActivity extends AppCompatActivity {
 
     private static final String TAG = "LikedListActivity";
+    ImageView arrow_left;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_liked_list);
+
+        arrow_left = findViewById(R.id.arrow_left);
+
+        arrow_left.setOnClickListener(v -> {
+            getOnBackPressedDispatcher().onBackPressed();
+        });
 
         // Layout khung thông tin bệnh viện
         LinearLayout containerLayout = findViewById(R.id.containerLayout);

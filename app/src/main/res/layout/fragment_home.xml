@@ -40,21 +40,23 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/location" />
 
-    <EditText
-        android:id="@+id/inputDate"
+    <Button
+        android:id="@+id/navigateToBooking"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:drawableRight="@drawable/baseline_calendar_month_24"
+        android:backgroundTint="#F8F1F1"
         android:ems="10"
-        android:hint="Chọn ngày"
-        android:inputType="date"
-        android:outlineSpotShadowColor="@color/btnColor"
+        android:text="Bấm để chọn ngày"
+        android:textColor="#FB6F78"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dateAsk"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        app:strokeColor="#FB6F78"
+        app:strokeWidth="1dp" />
 
     <TextView
         android:id="@+id/dateAsk"
@@ -73,7 +75,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        app:layout_constraintStart_toStartOf="@+id/inputDate"
+        app:layout_constraintStart_toStartOf="@+id/navigateToBooking"
         app:layout_constraintTop_toTopOf="@+id/bloodHand"
         app:srcCompat="@drawable/earth" />
 
@@ -84,7 +86,7 @@
         android:layout_marginTop="28dp"
         app:layout_constraintEnd_toStartOf="@+id/bloodUnit"
         app:layout_constraintStart_toEndOf="@+id/earth"
-        app:layout_constraintTop_toBottomOf="@+id/inputDate"
+        app:layout_constraintTop_toBottomOf="@+id/navigateToBooking"
         app:srcCompat="@drawable/volunteer" />
 
     <ImageView
@@ -92,7 +94,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/inputDate"
+        app:layout_constraintEnd_toEndOf="@+id/navigateToBooking"
         app:layout_constraintTop_toTopOf="@+id/bloodHand"
         app:srcCompat="@drawable/units_of_blood" />
 

@@ -245,7 +245,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="92dp"
         android:backgroundTint="#F8F1F1"
-
         android:text="Đăng xuất"
         android:textColor="#FB6F78"
         app:layout_constraintEnd_toEndOf="parent"

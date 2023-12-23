@@ -48,8 +48,8 @@ public class SignInActivity extends AppCompatActivity {
                 String email = loginEmail.getText().toString();
                 String password = loginPassword.getText().toString();
                 signInWithEmailAndPassword(email, password);
-
-                // then show success notification
+                Intent intent = new Intent(SignInActivity.this, BottomNavActivity.class);
+                startActivity(intent);
             } else {
                 Toast.makeText(this, "NO OK!", Toast.LENGTH_SHORT).show();
             }

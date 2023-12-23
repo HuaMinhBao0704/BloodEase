@@ -144,7 +144,7 @@
         android:text="Xác Nhận"
         android:layout_below="@id/dateAndTimeRectangle"
         android:layout_marginHorizontal="15dp"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="250dp"
         android:backgroundTint="#FB6F78"
         android:textColor="#FFFFFF"
         android:textSize="18sp"

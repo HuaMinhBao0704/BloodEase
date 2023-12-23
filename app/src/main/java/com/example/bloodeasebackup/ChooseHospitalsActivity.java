@@ -23,11 +23,17 @@ import com.google.firebase.Timestamp;
 import com.squareup.picasso.Picasso;
 
 public class ChooseHospitalsActivity extends AppCompatActivity {
+    ImageView arrow_left;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_hospitals);
+
+        arrow_left = findViewById(R.id.arrow_left);
+        arrow_left.setOnClickListener(v -> {
+            getOnBackPressedDispatcher().onBackPressed();
+        });
 
         // Nhận dữ liệu từ Intent (nếu có)
         Intent intent = getIntent();

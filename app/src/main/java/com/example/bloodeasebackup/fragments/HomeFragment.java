@@ -1,5 +1,6 @@
 package com.example.bloodeasebackup.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,13 +9,16 @@ import androidx.viewpager.widget.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
+import com.example.bloodeasebackup.LikedListActivity;
 import com.example.bloodeasebackup.R;
 import com.example.bloodeasebackup.adapters.DonationBenefitsAdapter;
 
 public class HomeFragment extends Fragment {
     DonationBenefitsAdapter donationBenefitsAdapter;
     ViewPager viewPager;
+    Button navigateToBooking;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -32,8 +36,15 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         viewPager = view.findViewById(R.id.benefitSlider);
-        donationBenefitsAdapter = new DonationBenefitsAdapter(container.getContext()); // lỗi ở đây nè
+        navigateToBooking = view.findViewById(R.id.navigateToBooking);
+
+        donationBenefitsAdapter = new DonationBenefitsAdapter(container.getContext());
         viewPager.setAdapter(donationBenefitsAdapter);
+
+        navigateToBooking.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), LikedListActivity.class);
+            startActivity(intent);
+        });
 
         return view;
     }
