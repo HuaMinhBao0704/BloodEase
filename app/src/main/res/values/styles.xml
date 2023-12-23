@@ -33,4 +33,46 @@
         <item name="android:textSize">12sp</item>
         <item name="android:textStyle">bold</item>
     </style>
+    <style name="nguoi_da_dkhm">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">#EF6337</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="name_hospital">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">#000000</item>
+    </style>
+
+    <style name="address_hospital">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#000000</item>
+    </style>
+
+    <style name="ngay_da_chon_bvgn">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#000000</item>
+    </style>
+
+    <style name="btn_datlich_bvgn">
+        <item name="android:textSize">18sp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="textplus">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#6B6B6B</item>
+    </style>
+
+    <style name="unitofblood">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#C0C0C0</item>
+    </style>
+
+    <style name="amount_of_blood">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#474747</item>
+    </style>
+
 </resources>
