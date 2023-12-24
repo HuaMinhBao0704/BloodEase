@@ -1,28 +1,33 @@
 package com.example.bloodeasebackup;
 
-import android.app.Activity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
-import java.util.ArrayList;
-import java.text.SimpleDateFormat;
-import java.util.Locale;
-import com.google.firebase.Timestamp;
-import com.squareup.picasso.Picasso;
 
-public class ChooseHospitalsActivity extends AppCompatActivity {
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.util.ArrayList;
+
+import java.util.List;
+
+import android.widget.ArrayAdapter;
+
+
+public class ChooseHospitalsActivity extends AppCompatActivity implements OnMapReadyCallback {
+
+    GoogleMap mMap;
+    SupportMapFragment mapFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +49,12 @@ public class ChooseHospitalsActivity extends AppCompatActivity {
             soNguoiDangKyTextView.setText(so_nguoi_da_dang_ky + " người đăng ký");
         }
 
+        Spinner timeSlotSpinner = findViewById(R.id.timeSlotSpinner);
+        List<String> timeSlots = getTimeSlots(); // Replace this with your method to get available time slots
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, timeSlots);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        timeSlotSpinner.setAdapter(adapter);
         // Find the confirmButton
         Button confirmButton = findViewById(R.id.confirmButton);
 
@@ -56,5 +67,58 @@ public class ChooseHospitalsActivity extends AppCompatActivity {
                 startActivity(certificatesIntent);
             }
         });
+
+        // Thêm phần hiển thị bản đồ
+        mapFragment=(SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapView);
+        mapFragment.getMapAsync(this);
+
     }
+
+
+    @Override
+    public void onMapReady(@NonNull GoogleMap googleMap) {
+        mMap=googleMap;
+
+        LatLng bv175 = new com.google.android.gms.maps.model.LatLng(10.800053021374163, 106.66754334838929);
+        googleMap.addMarker(new MarkerOptions().position(bv175).title("Bệnh viện phụ sản MêKông"));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(bv175));
+
+    }
+    private List<String> getTimeSlots() {
+        List<String> timeSlots = new ArrayList<>();
+        // Add your available time slots here
+        timeSlots.add("9:00 AM");
+        timeSlots.add("11:00 AM");
+        timeSlots.add("2:00 PM");
+        // Add more time slots as needed
+        return timeSlots;
+    }
+//    public void showTimePickerDialog(View view) {
+//        final Calendar calendar = Calendar.getInstance();
+//        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+//        int minute = calendar.get(Calendar.MINUTE);
+//
+//        TimePickerDialog timePickerDialog = new TimePickerDialog(this,
+//                new TimePickerDialog.OnTimeSetListener() {
+//                    @Override
+//                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+//                        // Update the chosen time
+//                        updateTime(hourOfDay, minute);
+//                    }
+//                }, hour, minute, false);
+//
+//        timePickerDialog.show();
+//    }
+//
+//    private void updateTime(int hour, int minute) {
+//        Button chooseTimeButton = findViewById(R.id.chooseTimeButton);
+//
+//        // Format the chosen time and update the button text
+//        Calendar calendar = Calendar.getInstance();
+//        calendar.set(Calendar.HOUR_OF_DAY, hour);
+//        calendar.set(Calendar.MINUTE, minute);
+//
+//        String chosenTime = DateFormat.getTimeInstance(DateFormat.SHORT).format(calendar.getTime());
+//        chooseTimeButton.setText(chosenTime);
+//    }
 }

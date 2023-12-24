@@ -27,18 +27,18 @@ public class SignUpActivity extends AppCompatActivity {
         registerConfirmPassword = findViewById(R.id.registerConfirmPassword);
         registerBtn = findViewById(R.id.registerBtn);
 
-        directToSignIn.setOnClickListener(view -> {
+       directToSignIn.setOnClickListener(view -> {
             Intent intent = new Intent(SignUpActivity.this, SignInActivity.class);
             startActivity(intent);
         });
 
         registerBtn.setOnClickListener(view -> {
             if (validateRegisterFullName() && validateRegisterEmail() && validatePassword()) {
-                Toast.makeText(this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
 
                 // TODO: Sign Up logic goes here
             } else {
-                Toast.makeText(this, "Đăng nhập thất bại!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Đăng ký thất bại!", Toast.LENGTH_SHORT).show();
             }
         });
     }

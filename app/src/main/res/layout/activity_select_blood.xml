@@ -373,17 +373,27 @@
             android:gravity="center_vertical"
             />
 
-        <TextView
-            android:id="@+id/amount_of_blood"
+        <Spinner
+            android:id="@+id/bloodAmountSpinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="84dp"
             android:layout_marginTop="37dp"
-            android:text="@string/amount_of_blood"
-            android:textAppearance="@style/amount_of_blood"
-            android:lineSpacingExtra="4sp"
+            android:entries="@array/blood_amount_options"
             android:gravity="center_vertical"
-            />
+            android:textAppearance="@style/amount_of_blood" />
+
+<!--        <TextView-->
+<!--            android:id="@+id/amount_of_blood"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="84dp"-->
+<!--            android:layout_marginTop="37dp"-->
+<!--            android:text="@string/amount_of_blood"-->
+<!--            android:textAppearance="@style/amount_of_blood"-->
+<!--            android:lineSpacingExtra="4sp"-->
+<!--            android:gravity="center_vertical"-->
+<!--            />-->
 
 
 </RelativeLayout>

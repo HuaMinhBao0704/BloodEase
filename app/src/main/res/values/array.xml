@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="blood_amount_options">
+        <item>100 ml</item>
+        <item>200 ml</item>
+        <item>300 ml</item>
+        <!-- Add more options as needed -->
+    </array>
+</resources>
