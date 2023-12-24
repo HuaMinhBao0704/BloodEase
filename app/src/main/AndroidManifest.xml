@@ -12,8 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BloodEaseBackup"
         tools:targetApi="31">
-
-
+        <activity
+            android:name=".EditProfileActivity"
+            android:exported="false" />
         <activity
             android:name=".AboutUsActivity"
             android:exported="false" />
@@ -23,7 +24,6 @@
         <activity
             android:name=".CertificatesDetailActivity"
             android:exported="false" />
-
         <activity
             android:name=".PersonalInfoActivity"
             android:exported="false" />
@@ -51,7 +51,6 @@
         <activity
             android:name=".CertificatesActivity"
             android:exported="false" />
-
         <activity
             android:name=".SplashScreenActivity"
             android:exported="true">

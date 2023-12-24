@@ -13,52 +13,93 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 public class SignInActivity extends AppCompatActivity {
     private static final String TAG = "GoogleSignIn";
+    private static final String ACCOUNT_DB_TAG = "AccountsDB";
     private static final int RC_SIGN_IN = 9001;
     TextView directToSignUp;
     Button loginBtn;
     EditText loginEmail, loginPassword;
-    private FirebaseAuth mAuth;
+    FirebaseAuth mAuth;
+    FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
+        Intent intent = getIntent();
+        String signUpEmail = intent.getStringExtra("email");
+        String signUpFullName = intent.getStringExtra("fullName");
+
+        Toast.makeText(this, signUpEmail + " - " + signUpFullName, Toast.LENGTH_SHORT).show();
+
         directToSignUp = findViewById(R.id.directToSignUp);
         loginEmail = findViewById(R.id.loginEmail);
         loginPassword = findViewById(R.id.loginPassword);
         loginBtn = findViewById(R.id.loginBtn);
         mAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
 
         directToSignUp.setOnClickListener(view -> {
-            Intent intent = new Intent(SignInActivity.this, SignUpActivity.class);
-            startActivity(intent);
+            Intent intentToSignUp = new Intent(SignInActivity.this, SignUpActivity.class);
+            startActivity(intentToSignUp);
         });
 
         loginBtn.setOnClickListener(view -> {
             if (validateLoginEmail() && validateLoginPassword()) {
-                Toast.makeText(this, "OK!", Toast.LENGTH_SHORT).show();
-
                 // TODO: Sign In logic goes here
                 String email = loginEmail.getText().toString();
                 String password = loginPassword.getText().toString();
                 signInWithEmailAndPassword(email, password);
-                Intent intent = new Intent(SignInActivity.this, BottomNavActivity.class);
-                startActivity(intent);
+                Toast.makeText(this, "Sign in OK!", Toast.LENGTH_SHORT).show();
+                // Todo: check if user have enough info in profile (yes => navigate to BottomNav, no => navigate to EditProfile)
+                db.collection("Accounts")
+                        .whereEqualTo("email", email)
+                        .get()
+                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                if (task.isSuccessful()) {
+                                    DocumentSnapshot accountDoc = task.getResult().getDocuments().get(0);
+                                    if (accountDoc.exists()) {
+                                        String accountPhone = accountDoc.getString("phone");
+                                        if (accountPhone.isEmpty()) {
+                                            // user do not have enough information => direct to EditProfileActivity
+                                            Intent intent2 = new Intent(SignInActivity.this, BottomNavActivity.class);
+                                            intent2.putExtra("signInEmail", email);
+                                            startActivity(intent2);
+                                        } else {
+                                            // else => navigate to BottomNavActivity (Home page)
+                                            Intent intent2 = new Intent(SignInActivity.this, BottomNavActivity.class);
+                                            intent2.putExtra("signInEmail", email);
+                                            startActivity(intent2);
+                                        }
+                                    }
+                                } else {
+                                    Log.d(ACCOUNT_DB_TAG, "Error getting documents: ", task.getException());
+                                }
+                            }
+                        });
             } else {
                 Toast.makeText(this, "NO OK!", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    /** Email & Password Sign In handlers */
+    /**
+     * Email & Password Sign In handlers
+     */
     private void signInWithEmailAndPassword(String email, String password) {
         // [START sign_in_with_email]
         mAuth.signInWithEmailAndPassword(email, password)
@@ -116,6 +157,7 @@ public class SignInActivity extends AppCompatActivity {
     private void updateUI(FirebaseUser user) {
         // Your UI update logic here
     }
+
     private void reload() {
     }
 }

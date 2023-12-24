@@ -48,7 +48,7 @@
     <string name="title_activity_bottom_nav">BottomNavActivity</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="default_web_client_id">991653464373-3b4921m96qvcjra4143ict7ccsdhthqs.apps.googleusercontent.com</string>
-<!--    <string name="default_web_client_id">313628342633-14o1gmcghqhchcummaejkkti48n8fjn6.apps.googleusercontent.com</string>-->
+    <!--    <string name="default_web_client_id">313628342633-14o1gmcghqhchcummaejkkti48n8fjn6.apps.googleusercontent.com</string>-->
     <string name="btn_datlich_bvgn">Đặt lịch</string>
     <string name="ngay_da_chon_bvgn">06/11/2023</string>
     <string name="textABplus">Nhóm Máu AB+</string>

@@ -16,18 +16,27 @@ import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
+
 import com.example.bloodeasebackup.R;
+import com.example.bloodeasebackup.adapters.DonationBenefitsAdapter;
 
 
 import java.util.Calendar;
 
 
 public class HomeFragment extends Fragment {
+    DonationBenefitsAdapter donationBenefitsAdapter;
+    ViewPager viewPager;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+
+        viewPager = view.findViewById(R.id.benefitSlider);
+        donationBenefitsAdapter = new DonationBenefitsAdapter(container.getContext()); // lỗi ở đây nè
+        viewPager.setAdapter(donationBenefitsAdapter);
 
         // Lấy reference của EditText trong fragment_home.xml
         EditText inputDate = view.findViewById(R.id.inputDate);

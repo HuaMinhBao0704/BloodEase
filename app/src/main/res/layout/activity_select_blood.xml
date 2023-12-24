@@ -35,7 +35,7 @@
 
     <!-- Các nhóm máu -->
     <RelativeLayout
-        android:id="@+id/bloodGroup"
+        android:id="@+id/profileBloodGroup"
         android:layout_width="389dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/title_search_blood"
@@ -395,7 +395,7 @@
         android:layout_width="389dp"
         android:layout_height="wrap_content"
         android:text="Tìm kiếm"
-        android:layout_below="@id/bloodGroup"
+        android:layout_below="@id/profileBloodGroup"
         android:layout_marginHorizontal="15dp"
         android:layout_marginTop="200dp"
         android:backgroundTint="#FB6F78"

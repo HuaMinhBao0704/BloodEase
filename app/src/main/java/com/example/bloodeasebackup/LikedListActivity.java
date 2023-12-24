@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -30,11 +31,17 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class LikedListActivity extends AppCompatActivity {
 
     private static final String TAG = "LikedListActivity";
+    ImageView arrow_left;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_liked_list);
+
+        arrow_left = findViewById(R.id.arrow_left);
+        arrow_left.setOnClickListener(v -> {
+            getOnBackPressedDispatcher().onBackPressed();
+        });
 
         // Lấy ngày đã chọn từ Intent
         String selectedDate = getIntent().getStringExtra("selectedDate");
@@ -114,7 +121,8 @@ public class LikedListActivity extends AppCompatActivity {
                                             // Gửi dữ liệu qua Intent
                                             chooseHospitalIntent.putExtra("bvgn", tenBVGN);
                                             if (so_nguoi_da_dang_ky instanceof Number) {
-                                                chooseHospitalIntent.putExtra("so_nguoi_da_dang_ky", ((Number) so_nguoi_da_dang_ky).intValue());}
+                                                chooseHospitalIntent.putExtra("so_nguoi_da_dang_ky", ((Number) so_nguoi_da_dang_ky).intValue());
+                                            }
 
                                             // Chuyển sang ChooseHospitalsActivity
                                             startActivity(chooseHospitalIntent);
