@@ -44,6 +44,8 @@ public class SignInActivity extends AppCompatActivity {
 
         loginBtn.setOnClickListener(view -> {
             if (validateLoginEmail() && validateLoginPassword()) {
+                Toast.makeText(this, "OK!", Toast.LENGTH_SHORT).show();
+
                 // TODO: Sign In logic goes here
                 String email = loginEmail.getText().toString();
                 String password = loginPassword.getText().toString();
@@ -97,6 +99,7 @@ public class SignInActivity extends AppCompatActivity {
             return true;
         }
     }
+
     public boolean validateLoginPassword() {
         String passwordInput = loginPassword.getText().toString();
 

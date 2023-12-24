@@ -75,4 +75,10 @@
         <item name="android:textColor">#474747</item>
     </style>
 
+    <style name="DatePickerTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/titlePink</item>
+        <item name="android:datePickerMode">spinner</item>
+    </style>
+
+
 </resources>
