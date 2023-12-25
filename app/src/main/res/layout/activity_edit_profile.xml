@@ -42,7 +42,7 @@
         android:drawablePadding="20dp"
         android:inputType="text"
         android:padding="10dp"
-        android:text="Họ và tên"
+        android:hint="Họ và tên"
         android:textColor="@color/grey"
         android:textColorHint="@color/grey"
         android:textSize="18sp"
@@ -61,7 +61,7 @@
         android:drawablePadding="20dp"
         android:inputType="date"
         android:padding="10dp"
-        android:text="Ngày sinh"
+        android:hint="Ngày sinh"
         android:textColor="@color/grey"
         android:textColorHint="@color/grey"
         android:textSize="18sp"
@@ -85,7 +85,7 @@
         app:layout_constraintTop_toBottomOf="@+id/profileDob" />
 
     <EditText
-        android:id="@+id/profileBloodGroup"
+        android:id="@+id/groupOfBlood"
         android:layout_width="match_parent"
         android:layout_height="46dp"
         android:layout_marginHorizontal="15dp"
@@ -95,7 +95,7 @@
         android:drawablePadding="20dp"
         android:inputType="text"
         android:padding="10dp"
-        android:text="Nhóm máu"
+        android:hint="Nhóm máu"
         android:textColor="@color/grey"
         android:textColorHint="@color/grey"
         android:textSize="18sp"
@@ -112,15 +112,15 @@
         android:background="@drawable/gray_border"
         android:drawableStart="@drawable/baseline_monitor_weight_24"
         android:drawablePadding="20dp"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:padding="10dp"
-        android:text="Cân nặng"
+        android:hint="Cân nặng"
         android:textColor="@color/grey"
         android:textColorHint="@color/grey"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileBloodGroup" />
+        app:layout_constraintTop_toBottomOf="@+id/groupOfBlood" />
 
     <EditText
         android:id="@+id/profileEmail"
@@ -133,7 +133,7 @@
         android:drawablePadding="20dp"
         android:inputType="textEmailAddress"
         android:padding="10dp"
-        android:text="Email"
+        android:hint="Email"
         android:textColor="@color/grey"
         android:textColorHint="@color/grey"
         android:textSize="18sp"
@@ -152,7 +152,7 @@
         android:drawablePadding="20dp"
         android:inputType="textEmailAddress"
         android:padding="10dp"
-        android:text="Số điện thoại"
+        android:hint="Số điện thoại"
         android:textColor="@color/grey"
         android:textColorHint="@color/grey"
         android:textSize="18sp"

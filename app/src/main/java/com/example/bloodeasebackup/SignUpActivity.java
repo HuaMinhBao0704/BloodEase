@@ -29,7 +29,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -102,7 +104,24 @@ public class SignUpActivity extends AppCompatActivity {
                 String email = registerEmail.getText().toString();
                 String password = registerPassword.getText().toString();
                 String fullName = registerFullName.getText().toString();
-                createAccount(email, password);
+                createAccount(email, password, fullName);
+
+                db.collection("Accounts")
+                        .whereEqualTo("email", email)
+                        .get()
+                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+
+                            if (task.getResult().isEmpty()) {
+                                addAccountToFirestore(email, fullName);
+                            }
+                        } else {
+                            Log.d(ACCOUNT_DB_TAG, "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
 
                 // then show success notification and navigate to Sign In activity
                 Intent intent = new Intent(SignUpActivity.this, SignInActivity.class);
@@ -120,7 +139,9 @@ public class SignUpActivity extends AppCompatActivity {
     /**
      * Email & Password Register handlers
      */
-    private void addUserToFirestore(String email, String fullName) {
+
+    private void addAccountToFirestore(String email, String fullName) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
         Map<String, Object> personalInfo = new HashMap<>();
         personalInfo.put("email", email);
         personalInfo.put("fullName", fullName);
@@ -140,7 +161,7 @@ public class SignUpActivity extends AppCompatActivity {
                 });
     }
 
-    private void createAccount(String email, String password) {
+    private void createAccount(String email, String password, String fullName) {
         // [START create_user_with_email]
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -148,9 +169,9 @@ public class SignUpActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
+
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            addUserToFirestore(email, password);
                             Toast.makeText(SignUpActivity.this, "create new account OK.",
                                     Toast.LENGTH_SHORT).show();
                             updateUI(user);
@@ -159,42 +180,14 @@ public class SignUpActivity extends AppCompatActivity {
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
                             Toast.makeText(SignUpActivity.this, "create new account failed.",
                                     Toast.LENGTH_SHORT).show();
-                            updateUI(null);
+                            return;
                         }
                     }
                 });
+
+
         // [END create_user_with_email]
     }
-
-    /** Google Sign In handlers
-     private void signIn() {
-     Intent signInIntent = mGoogleSignInClient.getSignInIntent();
-     googleSignInLauncher.launch(signInIntent);
-     }
-     private void handleGoogleSignInResult(Task<GoogleSignInAccount> task) {
-     try {
-     GoogleSignInAccount account = task.getResult(ApiException.class);
-     Log.d(TAG, "firebaseAuthWithGoogle:" + account.getId());
-     firebaseAuthWithGoogle(account.getIdToken());
-     } catch (ApiException e) {
-     Log.w(TAG, e);
-     }
-     }
-     private void firebaseAuthWithGoogle(String idToken) {
-     AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
-     mAuth.signInWithCredential(credential)
-     .addOnCompleteListener(this, task -> {
-     if (task.isSuccessful()) {
-     Log.d(TAG, "signInWithCredential:success");
-     FirebaseUser user = mAuth.getCurrentUser();
-     updateUI(user);
-     } else {
-     Log.w(TAG, "signInWithCredential:failure", task.getException());
-     updateUI(null);
-     }
-     });
-     }
-     */
 
     /**
      * Validators

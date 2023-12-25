@@ -1,10 +1,8 @@
 package com.example.bloodeasebackup.fragments;
 
-import static android.content.ContentValues.TAG;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import com.example.bloodeasebackup.SelectBloodActivity;

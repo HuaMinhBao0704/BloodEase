@@ -13,14 +13,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 public class SignInActivity extends AppCompatActivity {
@@ -37,12 +35,6 @@ public class SignInActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
-
-        Intent intent = getIntent();
-        String signUpEmail = intent.getStringExtra("email");
-        String signUpFullName = intent.getStringExtra("fullName");
-
-        Toast.makeText(this, signUpEmail + " - " + signUpFullName, Toast.LENGTH_SHORT).show();
 
         directToSignUp = findViewById(R.id.directToSignUp);
         loginEmail = findViewById(R.id.loginEmail);
@@ -62,7 +54,6 @@ public class SignInActivity extends AppCompatActivity {
                 String email = loginEmail.getText().toString();
                 String password = loginPassword.getText().toString();
                 signInWithEmailAndPassword(email, password);
-                Toast.makeText(this, "Sign in OK!", Toast.LENGTH_SHORT).show();
                 // Todo: check if user have enough info in profile (yes => navigate to BottomNav, no => navigate to EditProfile)
                 db.collection("Accounts")
                         .whereEqualTo("email", email)
@@ -76,7 +67,7 @@ public class SignInActivity extends AppCompatActivity {
                                         String accountPhone = accountDoc.getString("phone");
                                         if (accountPhone.isEmpty()) {
                                             // user do not have enough information => direct to EditProfileActivity
-                                            Intent intent2 = new Intent(SignInActivity.this, BottomNavActivity.class);
+                                            Intent intent2 = new Intent(SignInActivity.this, EditProfileActivity.class);
                                             intent2.putExtra("signInEmail", email);
                                             startActivity(intent2);
                                         } else {
@@ -112,13 +103,11 @@ public class SignInActivity extends AppCompatActivity {
                             FirebaseUser user = mAuth.getCurrentUser();
                             Toast.makeText(SignInActivity.this, "Login successfully!",
                                     Toast.LENGTH_SHORT).show();
-                            updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
                             Toast.makeText(SignInActivity.this, "Login failed!",
                                     Toast.LENGTH_SHORT).show();
-                            updateUI(null);
                         }
                     }
                 });

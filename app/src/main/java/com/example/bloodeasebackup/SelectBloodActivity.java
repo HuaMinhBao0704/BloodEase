@@ -12,15 +12,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import com.example.bloodeasebackup.fragments.HomeFragment;
 
+import android.widget.ImageView;
 import android.widget.Toast;
 public class SelectBloodActivity extends AppCompatActivity {
         // Biến để theo dõi nhóm máu được chọn
         private String selectedBloodGroup = "";
+        ImageView arrow_left;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_select_blood);
+
+            arrow_left = findViewById(R.id.arrow_left);
+            arrow_left.setOnClickListener(v -> {
+                getOnBackPressedDispatcher().onBackPressed();
+            });
 
             // Thiết lập sự kiện click cho mỗi nhóm máu
             setBloodGroupClickListener(R.id.rectangle_ABplus, "AB+");
