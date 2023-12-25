@@ -327,6 +327,29 @@
             </RelativeLayout>
 
         </RelativeLayout>
+        <!-- chưa biết nhóm máu-->
+        <RelativeLayout
+            android:id="@+id/rectangle_unknown"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_below="@id/rectangle_blood"
+            android:background="@drawable/rectangle_blood"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/unknown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="Chưa biết nhóm máu"
+                android:textSize="16sp"
+                android:textAppearance="@style/textplus"
+                android:layout_centerVertical="true"
+                android:gravity="center_horizontal|center_vertical"
+                />
+        </RelativeLayout>
 
 
     </RelativeLayout>
@@ -338,7 +361,7 @@
         android:layout_width="359dp"
         android:layout_height="73dp"
         android:layout_marginStart="27dp"
-        android:layout_marginTop="500dp"
+        android:layout_marginTop="560dp"
         android:elevation="4dp"
         android:background="#FFFFFF">
 

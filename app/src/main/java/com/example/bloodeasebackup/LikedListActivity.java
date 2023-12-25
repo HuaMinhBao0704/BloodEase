@@ -1,10 +1,15 @@
 package com.example.bloodeasebackup;
 
+import static android.content.ContentValues.TAG;
+
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -24,27 +29,26 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class LikedListActivity extends AppCompatActivity {
 
     private static final String TAG = "LikedListActivity";
+    private EditText inputDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_liked_list);
-
+        inputDate = findViewById(R.id.inputDate);
         // Lấy ngày đã chọn từ Intent
         String selectedDate = getIntent().getStringExtra("selectedDate");
-
         // Layout khung thông tin bệnh viện
         LinearLayout containerLayout = findViewById(R.id.containerLayout);
-
         // Access Firestore
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-
         // Danh sách ID từ Firestore
         ArrayList<String> documentIds = new ArrayList<>();
         documentIds.add("92KszrRLz0yQN78ASGue");
@@ -55,18 +59,17 @@ public class LikedListActivity extends AppCompatActivity {
         documentIds.add("lYHuG6mNI9GDI30eBIjh");
         documentIds.add("hZ3xLuFpuGahW3Rc6FIU");
         documentIds.add("e028yMbXUxc25Ghrsu3w");
-        // ... (thêm các ID khác nếu cần)
+        documentIds.add("2lWTtfc6YLRRGWv3dOLw");
+        documentIds.add("hkWo8zE7b2YyxHY22b6h");
 
         // Danh sách hospitalView cần hiển thị
         ArrayList<View> hospitalsToDisplay = new ArrayList<>();
-
         // Đếm số lượng hospitalView đã được xử lý
         AtomicInteger processedCount = new AtomicInteger(0);
 
         for (String documentId : documentIds) {
             // Layout cho mỗi bệnh viện
             View hospitalView = getLayoutInflater().inflate(R.layout.hospital_item, containerLayout, false);
-
             // Lấy id các trường thông tin
             TextView tenBVGNTextView = hospitalView.findViewById(R.id.bvgn);
             TextView diaChiBVGNTextView = hospitalView.findViewById(R.id.diachi_bvgn);
@@ -74,7 +77,6 @@ public class LikedListActivity extends AppCompatActivity {
             TextView soNguoiDangKyTextView = hospitalView.findViewById(R.id.so_nguoi_da_dang_ky);
             Button datLichButton = hospitalView.findViewById(R.id.btn_datlich_bvgn);
             ImageView imgBVGNImageView = hospitalView.findViewById(R.id.img);
-
 
             // Access Firestore để lấy dữ liệu
             db.collection("Hospital").document(documentId)
@@ -108,14 +110,17 @@ public class LikedListActivity extends AppCompatActivity {
                                     datLichButton.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View view) {
+                                            String selectedBloodAmount =getIntent().getStringExtra("selectedBloodAmount");
                                             // Create an Intent to start ChooseHospitalsActivity
                                             Intent chooseHospitalIntent = new Intent(LikedListActivity.this, ChooseHospitalsActivity.class);
-
-                                            // Gửi dữ liệu qua Intent
+                                            String userEmail = getIntent().getStringExtra("user_email");
+                                            chooseHospitalIntent.putExtra("user_email", userEmail);
                                             chooseHospitalIntent.putExtra("bvgn", tenBVGN);
+                                            chooseHospitalIntent.putExtra("selectedDate", selectedDate);
+                                            chooseHospitalIntent.putExtra("selectedBloodAmount", selectedBloodAmount);
+
                                             if (so_nguoi_da_dang_ky instanceof Number) {
                                                 chooseHospitalIntent.putExtra("so_nguoi_da_dang_ky", ((Number) so_nguoi_da_dang_ky).intValue());}
-
                                             // Chuyển sang ChooseHospitalsActivity
                                             startActivity(chooseHospitalIntent);
                                         }
@@ -137,6 +142,15 @@ public class LikedListActivity extends AppCompatActivity {
 
                             // Tăng số lượng đã xử lý
                             int processed = processedCount.incrementAndGet();
+                            inputDate.setText(selectedDate);
+
+                            // Gắn sự kiện click cho EditText để hiển thị DatePickerDialog
+                            inputDate.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    showDatePickerDialog();
+                                }
+                            });
 
                             // Kiểm tra xem đã xử lý tất cả hospitalView chưa
                             if (processed == documentIds.size()) {
@@ -150,12 +164,44 @@ public class LikedListActivity extends AppCompatActivity {
         }
     }
 
+    private void showDatePickerDialog() {
+        // Lấy ngày hiện tại nếu có, hoặc ngày mặc định nếu chưa có
+        String currentDate = inputDate.getText().toString();
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+        try {
+            Date date = dateFormat.parse(currentDate);
+            calendar.setTime(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        // Tạo DatePickerDialog
+        DatePickerDialog datePickerDialog = new DatePickerDialog(
+                LikedListActivity.this,
+                new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        // Xử lý khi người dùng chọn ngày
+                        String selectedDate = String.format(Locale.getDefault(), "%02d/%02d/%04d", dayOfMonth, month + 1, year);
+                        inputDate.setText(selectedDate);
+                    }
+                },
+                calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH));
+
+        // Hiển thị DatePickerDialog
+        datePickerDialog.show();
+    }
+
+
+    // kiểm tra ngày trùng khớp
     private boolean isDateMatched(String selectedDate, String ngayChonFirestore) {
 
         // Parse ngày đã chọn và ngày trong Firestore để so sánh
         if (selectedDate == null || ngayChonFirestore == null) {
             showNoHospitalsAvailableMessage();
-            return false; // hoặc thực hiện xử lý phù hợp
+            return false;
         }
         Log.d(TAG, "Selected date: " + selectedDate);
         try {
@@ -172,10 +218,10 @@ public class LikedListActivity extends AppCompatActivity {
                     selectedCalendar.get(Calendar.YEAR) == firestoreCalendar.get(Calendar.YEAR);
 
             if (isDateMatched) {
-                return true; // hoặc thực hiện xử lý phù hợp nếu ngày trùng khớp
+                return true;
             } else {
                 showNoHospitalsAvailableMessage();
-                return false; // hoặc thực hiện xử lý phù hợp
+                return false;
             }
         } catch (ParseException e) {
             e.printStackTrace();
@@ -183,7 +229,6 @@ public class LikedListActivity extends AppCompatActivity {
             return false;
         }
     }
-
 
     // Hàm để hiển thị thông báo khi không có bệnh viện nào có lịch ngày hôm đó
     private void showNoHospitalsAvailableMessage() {

@@ -77,11 +77,11 @@
             android:elevation="1dp"
             android:orientation="horizontal">
 
-            <!-- Chọn ngày -->
+
             <Button
                 android:id="@+id/rectangle_1"
-                android:layout_width="170dp"
-                android:layout_height="48dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 style="@style/TextAppearance.MaterialComponents.Button"
                 android:backgroundTint="#E64864C5"
@@ -114,10 +114,6 @@
                 android:background="@drawable/rectangle_cnhmct"
                 android:spinnerMode="dropdown"
                 android:textColor="#FFFFFF"/>
-
-
-
-
         </RelativeLayout>
 
         <!-- Dòng gạch ngang -->

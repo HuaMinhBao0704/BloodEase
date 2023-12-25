@@ -34,8 +34,10 @@ public class SignInActivity extends AppCompatActivity {
             if (validateLoginEmail() && validateLoginPassword()) {
                 Toast.makeText(this, "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
 
+                String userEmail = loginEmail.getText().toString();
                 // TODO: Sign In logic goes here
                 Intent intent = new Intent(SignInActivity.this, BottomNavActivity.class);
+                intent.putExtra("user_email",userEmail);
                 startActivity(intent);
             } else {
                 Toast.makeText(this, "Đăng nhập thất bại!", Toast.LENGTH_SHORT).show();

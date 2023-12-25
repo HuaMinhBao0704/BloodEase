@@ -1,7 +1,10 @@
 package com.example.bloodeasebackup;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -16,6 +19,8 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
@@ -28,6 +33,7 @@ public class ChooseHospitalsActivity extends AppCompatActivity implements OnMapR
 
     GoogleMap mMap;
     SupportMapFragment mapFragment;
+    private Button rectangle1Button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +45,18 @@ public class ChooseHospitalsActivity extends AppCompatActivity implements OnMapR
         if (intent != null) {
             String tenBVGN = intent.getStringExtra("bvgn");
             int so_nguoi_da_dang_ky = intent.getIntExtra("so_nguoi_da_dang_ky", 0);
+            so_nguoi_da_dang_ky++;// tăng số người đăng ký
+            updateSoNguoiDangKyFirestore(tenBVGN, so_nguoi_da_dang_ky);
 
-            // Ánh xạ các view từ layout
+            rectangle1Button = findViewById(R.id.rectangle_1);
+            String selectedDate = getIntent().getStringExtra("selectedDate");
+
+
             TextView tenBVGNTextView = findViewById(R.id.bvgn);
             TextView soNguoiDangKyTextView = findViewById(R.id.so_nguoi_da_dang_ky);
 
             // Hiển thị dữ liệu trên giao diện
+            rectangle1Button.setText(selectedDate);
             tenBVGNTextView.setText(tenBVGN);
             soNguoiDangKyTextView.setText(so_nguoi_da_dang_ky + " người đăng ký");
         }
@@ -63,36 +75,63 @@ public class ChooseHospitalsActivity extends AppCompatActivity implements OnMapR
             @Override
             public void onClick(View view) {
                 // Create an Intent to start CertificatesActivity
+                String selectedBloodAmount =getIntent().getStringExtra("selectedBloodAmount");
+                String tenBVGN = intent.getStringExtra("bvgn");
+                String selectedDate = getIntent().getStringExtra("selectedDate");
                 Intent certificatesIntent = new Intent(ChooseHospitalsActivity.this, CertificatesActivity.class);
+                String userEmail = getIntent().getStringExtra("user_email");
+                Log.d(TAG, "testtt: " + userEmail);
+                certificatesIntent.putExtra("user_email", userEmail);
+                certificatesIntent.putExtra("bvgn", tenBVGN);
+                certificatesIntent.putExtra("selectedDate", selectedDate);
+                certificatesIntent.putExtra("selectedBloodAmount", selectedBloodAmount);
                 startActivity(certificatesIntent);
             }
         });
 
         // Thêm phần hiển thị bản đồ
-        mapFragment=(SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapView);
+        mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapView);
         mapFragment.getMapAsync(this);
 
     }
 
-
+    // lưu ý địa điểm mặc định
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
-        mMap=googleMap;
+        mMap = googleMap;
 
         LatLng bv175 = new com.google.android.gms.maps.model.LatLng(10.800053021374163, 106.66754334838929);
         googleMap.addMarker(new MarkerOptions().position(bv175).title("Bệnh viện phụ sản MêKông"));
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(bv175));
 
     }
+
     private List<String> getTimeSlots() {
         List<String> timeSlots = new ArrayList<>();
-        // Add your available time slots here
-        timeSlots.add("9:00 AM");
-        timeSlots.add("11:00 AM");
+        timeSlots.add("8:00 AM");
+        timeSlots.add("10:00 AM");
         timeSlots.add("2:00 PM");
-        // Add more time slots as needed
         return timeSlots;
     }
+    private void updateSoNguoiDangKyFirestore(String tenBVGN, int soNguoiDangKyMoi) {
+        // Thực hiện cập nhật lên Firestore
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        // Tạo tham chiếu đến tài liệu của bệnh viện trong Firestore
+        DocumentReference docRef = db.collection("Hospital").document(tenBVGN);
+
+        // Cập nhật số người đăng ký mới
+        docRef
+                .update("so_nguoi_da_dang_ky", soNguoiDangKyMoi)
+                .addOnSuccessListener(aVoid -> {
+                    Log.d(TAG, "Cập nhật số người đăng ký thành công!");
+                })
+                .addOnFailureListener(e -> {
+                    Log.w(TAG, "Lỗi khi cập nhật số người đăng ký", e);
+                });
+    }
+
+}
 //    public void showTimePickerDialog(View view) {
 //        final Calendar calendar = Calendar.getInstance();
 //        int hour = calendar.get(Calendar.HOUR_OF_DAY);
@@ -121,4 +160,4 @@ public class ChooseHospitalsActivity extends AppCompatActivity implements OnMapR
 //        String chosenTime = DateFormat.getTimeInstance(DateFormat.SHORT).format(calendar.getTime());
 //        chooseTimeButton.setText(chosenTime);
 //    }
-}
+

@@ -23,12 +23,10 @@ import java.util.Calendar;
 
 
 public class HomeFragment extends Fragment {
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-
         // Lấy reference của EditText trong fragment_home.xml
         EditText inputDate = view.findViewById(R.id.inputDate);
 
@@ -39,14 +37,12 @@ public class HomeFragment extends Fragment {
                 showDatePickerDialog(inputDate);
             }
         });
-
         return view;
     }
 
     private void showDatePickerDialog(final EditText inputDate) {
         // Lấy ngày hiện tại
         Calendar calendar = Calendar.getInstance();
-
         // Khởi tạo DatePickerDialog
         new DatePickerDialog(
                 requireContext(),
@@ -57,12 +53,12 @@ public class HomeFragment extends Fragment {
                     Calendar selectedDate = Calendar.getInstance();
                     selectedDate.set(year, month, dayOfMonth);
                     String formattedDate = sdf.format(selectedDate.getTime());
-
+                    String userEmail = requireArguments().getString("user_email", "");
+                    Log.d(TAG, "temail: " + userEmail);
                     // Hiển thị ngày trong EditText
                     inputDate.setText(formattedDate);
-
                     // Chuyển hướng sang LikedListActivity
-                    navigateToLikedListActivity(formattedDate);
+                    navigateToLikedListActivity(formattedDate, userEmail);
                 },
                 calendar.get(Calendar.YEAR),
                 calendar.get(Calendar.MONTH),
@@ -70,14 +66,11 @@ public class HomeFragment extends Fragment {
         ).show();
     }
 
-    private void navigateToLikedListActivity(String selectedDate) {
-        // Tạo Intent để chuyển hướng từ HomeFragment sang LikedListActivity
+    private void navigateToLikedListActivity(String selectedDate, String userEmail) {
         Intent intent = new Intent(requireContext(), SelectBloodActivity.class);
-
-        // Đưa ngày đã chọn vào Intent
+        Log.d(TAG, "testt: " + selectedDate);
+        intent.putExtra("user_email", userEmail);
         intent.putExtra("selectedDate", selectedDate);
-
-        // Thực hiện chuyển hướng
         startActivity(intent);
     }
 
