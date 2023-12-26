@@ -17,11 +17,15 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.Timestamp;
+
+import com.google.firebase.firestore.GeoPoint;
 import com.squareup.picasso.Picasso;
 import com.example.bloodeasebackup.fragments.HomeFragment;
 
@@ -96,7 +100,8 @@ public class LikedListActivity extends AppCompatActivity {
                                     Object so_nguoi_da_dang_ky = document.get("so_nguoi_da_dang_ky");
                                     Object so_nguoi_dang_ky_toi_da = document.get("so_nguoi_dang_ky_toi_da");
                                     String imgUrl = document.getString("img");
-
+                                    GeoPoint vitri = document.getGeoPoint("point");
+                                    LatLng viTriLatLng = new LatLng(vitri.getLatitude(), vitri.getLongitude());
                                     // Hiện thông tin
                                     tenBVGNTextView.setText(tenBVGN);
                                     diaChiBVGNTextView.setText(diaChiBVGN);
@@ -118,6 +123,8 @@ public class LikedListActivity extends AppCompatActivity {
                                             chooseHospitalIntent.putExtra("bvgn", tenBVGN);
                                             chooseHospitalIntent.putExtra("selectedDate", selectedDate);
                                             chooseHospitalIntent.putExtra("selectedBloodAmount", selectedBloodAmount);
+                                            chooseHospitalIntent.putExtra("vitri", viTriLatLng);
+
 
                                             if (so_nguoi_da_dang_ky instanceof Number) {
                                                 chooseHospitalIntent.putExtra("so_nguoi_da_dang_ky", ((Number) so_nguoi_da_dang_ky).intValue());}

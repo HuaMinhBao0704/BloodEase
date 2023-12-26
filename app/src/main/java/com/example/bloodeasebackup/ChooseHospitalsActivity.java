@@ -21,6 +21,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.GeoPoint;
 
 import java.util.ArrayList;
 
@@ -50,6 +51,7 @@ public class ChooseHospitalsActivity extends AppCompatActivity implements OnMapR
 
             rectangle1Button = findViewById(R.id.rectangle_1);
             String selectedDate = getIntent().getStringExtra("selectedDate");
+
 
 
             TextView tenBVGNTextView = findViewById(R.id.bvgn);
@@ -96,15 +98,29 @@ public class ChooseHospitalsActivity extends AppCompatActivity implements OnMapR
     }
 
     // lưu ý địa điểm mặc định
+
+
+
+
+
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
         mMap = googleMap;
 
-        LatLng bv175 = new com.google.android.gms.maps.model.LatLng(10.800053021374163, 106.66754334838929);
-        googleMap.addMarker(new MarkerOptions().position(bv175).title("Bệnh viện phụ sản MêKông"));
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(bv175));
+        // Nhận LatLng từ Intent
+        LatLng viTriBv = getIntent().getParcelableExtra("vitri");
+        String tenBVGN = getIntent().getStringExtra("bvgn");
 
+        // Kiểm tra xem có LatLng không
+        if (viTriBv != null) {
+            // Thêm Marker vào bản đồ
+            googleMap.addMarker(new MarkerOptions().position(viTriBv).title(tenBVGN));
+            // Di chuyển Camera đến vị trí bệnh viện
+            googleMap.moveCamera(CameraUpdateFactory.newLatLng(viTriBv));
+        }
     }
+
+
 
     private List<String> getTimeSlots() {
         List<String> timeSlots = new ArrayList<>();
