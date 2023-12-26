@@ -17,6 +17,24 @@ public class CertificatesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_certificates);
 
+        // Ánh xạ các TextView từ layout
+        TextView tenBVGNTextView = findViewById(R.id.ten_bvgn);
+        TextView amountOfBloodTextView = findViewById(R.id.amount_of_blood);
+        TextView ngayDangKyTextView = findViewById(R.id.ngay_dang_ky);
+
+        // Nhận dữ liệu từ Intent
+        Intent intentC = getIntent();
+        if (intentC != null) {
+            String tenBVGN = intentC.getStringExtra("bvgn");
+            String selectedBloodAmount =intentC.getStringExtra("selectedBloodAmount");
+            String ngayDangKy = intentC.getStringExtra("selectedDate");
+
+            // Hiển thị dữ liệu trong các TextView
+            tenBVGNTextView.setText(tenBVGN);
+            amountOfBloodTextView.setText(selectedBloodAmount);
+            ngayDangKyTextView.setText("Ngày hiến máu: "+ ngayDangKy);
+        }
+
         backBtn = findViewById(R.id.backBtn);
         testBtn = findViewById(R.id.testBtn);
 
@@ -26,6 +44,17 @@ public class CertificatesActivity extends AppCompatActivity {
 
         testBtn.setOnClickListener(view -> {
             Intent intent = new Intent(CertificatesActivity.this, CertificatesDetailActivity.class);
+
+            String selectedBloodAmount =getIntent().getStringExtra("selectedBloodAmount");
+            String userEmail = getIntent().getStringExtra("user_email");
+            String tenBVGN=getIntent().getStringExtra("bvgn");
+            String selectedDate = getIntent().getStringExtra("selectedDate");
+
+            intent.putExtra("user_email", userEmail);
+            intent.putExtra("bvgn", tenBVGN);
+            intent.putExtra("selectedDate", selectedDate);
+            intent.putExtra("selectedBloodAmount", selectedBloodAmount);
+
             startActivity(intent);
         });
     }

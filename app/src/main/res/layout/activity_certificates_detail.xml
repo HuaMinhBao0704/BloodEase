@@ -49,8 +49,8 @@
         android:layout_marginTop="17dp"
         android:layout_toEndOf="@+id/tr_ng_th_i"
         android:gravity="top"
-        android:text="Đã xác nhận"
-        android:textColor="#126294"
+        android:text="Chưa xác nhận"
+        android:textColor="#FFA927"
         android:textSize="20sp"
         android:textStyle="bold" />
 

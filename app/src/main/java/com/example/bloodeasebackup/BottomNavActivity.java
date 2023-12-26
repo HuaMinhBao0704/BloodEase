@@ -21,14 +21,18 @@ public class BottomNavActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityBottomNavBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-        replaceFragment(new HomeFragment());
+        String userEmail = getIntent().getStringExtra("user_email");
+        Bundle bundle=new Bundle();
+        bundle.putString("user_email", userEmail);
+        HomeFragment homeFragment=new HomeFragment();
+        homeFragment.setArguments(bundle);
+        replaceFragment(homeFragment);
 
         binding.bototmNavigationView.setOnItemSelectedListener(item -> {
             int itemId = item.getItemId();
 
             if (itemId == R.id.home_nav) {
-                replaceFragment(new HomeFragment());
+                replaceFragment(homeFragment);
             } else if (itemId == R.id.notifications_nav) {
                 replaceFragment(new NotificationsTabFragment());
             } else if (itemId == R.id.profile_nav) {
