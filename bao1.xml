@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewsActivity">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="330dp"
+        android:text="Chuyện tử tế: Người đàn ông 81 lần hiến máu nhân đạo"
+        android:textColor="@color/white"
+        app:srcCompat="@drawable/screenshot_2023_11_11_152605" />
+
+    <ImageView
+        android:id="@+id/backBtn"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/baseline_arrow_back_ios_new_24"
+        app:layout_constraintStart_toStartOf="parent"
+        android:onClick="onBackPressed"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/imageView3">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="15dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TableLayout  android:layout_width="390dp"  android:layout_height="wrap_content"  android:stretchColumns="*"  >
+
+                    <TableRow  android:id="@+id/tableRow1"  android:layout_width="wrap_content"  android:layout_height="wrap_content"  android:gravity="center_vertical">
+
+                        <ImageView
+                            android:id="@+id/imageView5"
+                            android:layout_width="18dp"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/imageView3"
+                            android:layout_gravity="end"
+                            app:srcCompat="@drawable/ellipse_2" />
+
+                        <TextView
+                            android:id="@+id/text_view_text"
+                            android:layout_width="140dp"
+                            android:layout_height="wrap_content"
+                            android:text=" VNEXPRESS "
+                            android:textColor="@color/black"
+                            android:textSize="30sp"
+                            android:textStyle="bold">
+
+                        </TextView>
+
+                        <ImageView
+                            android:id="@+id/imageView6"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="start"
+                            app:srcCompat="@drawable/vector" />
+
+                        <ImageView
+                            android:id="@+id/imageView7"
+                            android:layout_width="41dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="end"
+                            app:srcCompat="@drawable/left_icon" />
+
+                    </TableRow>
+                </TableLayout>
+
+            </LinearLayout>
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="15dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/heading1"
+                    android:layout_width="375dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="Mong muốn chia sẻ với bệnh nhân lâm cảnh ngặt nghèo, hơn 20 năm qua, ông Trương Văn Vui (44 tuổi, ngụ xã Tân Bình, H.Phụng Hiệp, Hậu Giang) đã tình nguyện hiến máu 81 lần."
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/text_1"
+                    android:layout_width="375dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="Chia sẻ về lần hiến máu đầu tiên, ông Vui cho biết đó là vào năm 2001. Khi đó, ông đang chăm sóc người thân tại Bệnh viện đa khoa số 10 (xã Tân Phú Thạnh, H.Châu Thành A, Hậu Giang) thì có một nữ bệnh nhân được chuyển vào cấp cứu trong tình trạng nguy kịch do tai nạn, cần truyền máu gấp. Cả gia đình bệnh nhân cuống cuồng vì không còn đủ máu để cho và ngân hàng máu của bệnh viện cũng không đủ cung cấp. Cô gái thuộc nhóm máu O nên càng khó tìm người cho máu phù hợp."
+                    android:textSize="12sp" />
+            </LinearLayout>
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="15dp" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="match_parent"
+                android:layout_height="195dp"
+                app:srcCompat="@drawable/rectangle_36" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/text_detail"
+                    android:layout_width="375dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="Ông Trương Văn Vui tham gia hiến máu nhân đạo Ảnh: Thanh Duy"
+                    android:textSize="10sp"
+                    android:textStyle="italic"/>
+            </LinearLayout>
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="20dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/text_2"
+                    android:layout_width="375dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:textSize="12sp"
+                    android:text="Chứng kiến tình cảnh 'ngàn cân treo sợi tóc', ông Vui đi thẳng đến phòng bác sĩ xin kiểm tra sức khỏe để hiến máu. 'Tôi nhớ cảm giác lúc đó rất lo lắng, hồi hộp vì lần đầu tiên hiến máu. Hôm sau, nghe bác sĩ báo bệnh nhân đã vượt qua cửa tử, tôi cũng vui lây, cảm giác lâng lâng khó tả vì mình đã góp phần cứu được một mạng người', ông Vui kể.
+            \nLần đó, ông Vui hiến được 250 ml máu. Bác sĩ nói nếu ông bán máu sẽ được trả 2,1 triệu đồng, nhưng ông từ chối. Sau này, khi cô gái bình phục, cả gia đình đến nhà ông Vui cảm ơn. Niềm vui của mọi người đã cho ông thấy được giá trị tinh thần, ý nghĩa nhân văn của việc hiến máu tình nguyện nên có động lực gắn bó với nghĩa cử này lâu dài.
+            \nÔng Vui hiện là Chủ tịch Hội Người cao tuổi xã Tân Bình. Trước đó, ông từng công tác ở Đoàn thanh niên, Mặt trận Tổ quốc, Hội Chữ thập đỏ tại địa phương. Dù trải qua nhiều vị trí, công việc khác nhau nhưng sự nhiệt tình với phong trào hiến máu của ông vẫn vậy. Sự thay đổi có chăng là ông Vui cảm thấy hạnh phúc hơn, khỏe mạnh hơn nên lượng máu hiến cho đời nhiều hơn, từ 250 ml lên 450 ml mỗi lần. Từ năm 2001 đến nay, ông Vui đã 81 lần hiến máu nhân đạo. Ngoại trừ 2 năm ảnh hưởng bởi đại dịch Covid-19 (2020 và 2021), hầu như năm nào ông cũng đăng ký tham gia hiến máu 4 lần." />
+            </LinearLayout>
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="20dp" />
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/line_15" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/footer" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

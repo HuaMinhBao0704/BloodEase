@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".PrivacyActivity">
+    <ImageView
+        android:id="@+id/backBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="29dp"
+        android:src="@drawable/baseline_arrow_back_ios_new_24"
+        app:layout_constraintBottom_toBottomOf="@+id/textView4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:text="Chính sách và bảo mật"
+        android:textColor="#FD6E77"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/bloodLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginVertical="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/logo"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bloodLogo">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/heading1"
+                    android:layout_width="375dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="Chính sách bảo mật của BloodEase"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/text_1"
+                    android:layout_width="375dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="Bằng cách cài đặt ứng dụng di động của chúng tôi hoặc bất kỳ cách nào sử dụng hoặc truy cập dịch vụ của chúng tôi, bạn chấp nhận các điều khoản và điều kiện của chính sách bảo mật này và việc sử lý dữ liệu cá nhân cho bạn."
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="5dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/heading2"
+                    android:layout_width="375dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="Quản lý dữ liệu cá nhân"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/text_2"
+                    android:layout_width="375dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="Chịu trách nhiệm sử lý dữ liệu cá nhân của bạn là:
+            \nTên công ty: Ngân hàng máu BloodEase.
+            \nĐăng ký kinh doanh số: 0123456789 được cấp vào ngày 01/01/2023.
+            \nĐịa chỉ: Khu phố 6, P.Linh Trung, TP. Thủ Đức, TP.HCM.
+            \nEmail liên hệ: hi@bloodease.vn"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="5dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/head3"
+                    android:layout_width="375dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="Chúng tôi sử dụng dữ liệu cá nhân của bạn"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/text_4"
+                    android:layout_width="375dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="Khi bạn đăng ký dịch vụ của BloodEase, chúng tôi sẽ thu thập dữ liệu cá nhân của bạn như địa chỉ email của bạn, họ và tên, số điện thoại, cân nặng, nhóm máu, ngày tháng năm sinh và giới tính.
+            \nQuyền riêng tư của bạn rất quan trọng đối với chúng tôi và chúng tôi sẽ chỉ xử lý dữ liệu cá nhân của bạn theo Chính sách bảo mật này và quy định dữ liệu cá nhân có liên quan.
+            \nCần lưu ý rằng các thông tin tiếp thị do Mitw gửi đến cho bạn trên cơ sở mối quan hệ khách hàng là cơ sở pháp lý để xử lý dữ liệu cá nhân, không cần phải có sự đồng ý. Dữ liệu đó sẽ được xử lý và sử dụng tuân thủ quy định dữ liệu cá nhân có liên quan.
+            \nBạn có quyền yêu cầu quyền truy cập và cải chính hoặc xóa dữ liệu cá nhân của bạn được BloodEase xử lý. Nếu yêu cầu cải chính liên quan đến dữ liệu cần thiết cho BloodEase để cung cấp Dịch vụ, các yêu cầu đó sẽ có tác dụng là tài khoản của bạn sẽ bị chấm dứt tại BloodEase.
+            \nNếu bạn muốn thực hiện quyền này, xin vui lòng liên hệ với chúng tôi tại hi@bloodease.vn Một ứng dụng sẽ được thực hiện bằng văn bản và phải có chữ ký của bạn. Ngoài ra, bạn cũng có thể chỉnh sửa dữ liệu cá nhân của mình bằng cách xóa tài khoản của bạn thông qua Dịch vụ."
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="5dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/head4"
+                    android:layout_width="375dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="Xử lý dữ liệu cần thiết để cung cấp Dịch vụ"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/text_5"
+                    android:layout_width="375dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="Là một phần của việc cung cấp dịch vụ cho bạn, chúng tôi xử lý dữ liệu cá nhân của bạn mà bạn cung cấp cho chúng tôi tại thời điểm đăng ký chẳng hạn như:
+            \nTên và họ
+            \nEmail
+            \nSố điện thoại
+            \nNgày sinh
+            \nTrọng lượng
+            \nNhóm máu
+            \nNhận dạng thiết bị tức là thông tin về thiết bị, địa chỉ IP, v.v. bạn sử dụng để đăng ký và đăng nhập vào dịch vụ."
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="5dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/head5"
+                    android:layout_width="375dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="Cookies"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/text_6"
+                    android:layout_width="375dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="BloodEase sử dụng cookie để hoạt động đúng. Chúng tôi sử dụng cả cookie phiên (hết hạn sau khi bạn đóng trình duyệt web) và cookie liên tục (tồn tại trên thiết bị của bạn trong một khoảng thời gian đã đặt hoặc cho đến khi bạn xóa chúng).
+            \nNếu trình duyệt internet của bạn được đặt và định cấu hình để chấp nhận cookie, bạn đồng ý với việc sử dụng cookie.
+            \nCookie là một tệp văn bản nhỏ được tạo bởi các trang web bạn truy cập và có thể chứa thông tin về bạn với tư cách là khách truy cập. Các tệp văn bản này được lưu trữ trên máy tính của bạn và, ví dụ, giúp bạn không phải nhớ mật khẩu. Thông tin từ cookie có thể được sử dụng để cải thiện trải nghiệm người dùng và / hoặc Dịch vụ và nhắm mục tiêu các chiến dịch tiếp thị và ưu đãi cho khách hàng của chúng tôi.
+            \nNếu bạn không chấp nhận cookie, bạn có thể ngăn cookie được lưu trên máy tính của mình bằng cách thay đổi cài đặt của trình duyệt web. Bạn cũng có thể xóa cookie đã được lưu trữ trước đó. Trong những trường hợp như vậy, vui lòng tham khảo phần trợ giúp của trình duyệt internet của bạn. Nếu bạn chọn không chấp nhận cookie, bạn vẫn có thể sử dụng Dịch vụ của chúng tôi, nhưng chức năng của chúng có thể bị hạn chế phần nào."
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="5dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/head6"
+                    android:layout_width="375dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="Nhà cung cấp và bên thứ ba"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/text_7"
+                    android:layout_width="375dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="BloodEase dựa vào một số dịch vụ và cơ sở hạ tầng tiêu chuẩn để hoạt động. Chúng tôi đảm bảo rằng tất cả chúng đều tuân thủ GDPR.
+            \nChúng tôi dựa vào các dịch vụ như: Dịch vụ đám mây, Nhà cung cấp email giao dịch, Đối tác phân bổ quảng cáo trên thiết bị di động, Nền tảng quảng cáo, v.v. Để cung cấp dịch vụ của chúng tôi.
+            \nCác nhà cung cấp chính mà chúng tôi sử dụng là:
+            \nGoogle Cloud Services
+            \nDịch vụ: Nhà cung cấp dịch vụ đám mây
+            \nVị trí: Hoa Kỳ
+            \nGoogle Analytics, Firebase Analytics and Login
+            \nDịch vụ: Phân tích
+            \nVị trí: Hoa Kỳ
+            \nFacebook Login, Pixel, Analytics, Lookalikes
+            \nDịch vụ: Phân tích, Xác thực, Quảng cáo
+            \nVị trí: Hoa Kỳ
+            \nGoogle Map
+            \nDịch vụ: Chia sẻ vị trí (trong trường hợp bạn yêu cầu)
+            \nVị trí: Hoa Kỳ"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="5dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/head7"
+                    android:layout_width="375dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="Bảo mật dữ liệu cá nhân mà chúng tôi xử lý"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/text_8"
+                    android:layout_width="375dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="Bảo mật và tính toàn vẹn của dữ liệu cá nhân của bạn rất quan trọng đối với chúng tôi. Ngoài việc tuân thủ quy định dữ liệu cá nhân có liên quan, chúng tôi sử dụng các tiêu chuẩn, công nghệ và quy trình được chấp nhận của ngành, như tường lửa, phần mềm bảo mật, v.v., để bảo vệ tính toàn vẹn của dữ liệu cá nhân của bạn và ngăn chặn mọi truy cập trái phép. Tuy nhiên, không có hệ thống nào có thể bảo mật 100% và bất chấp những nỗ lực của chúng tôi, luôn có nguy cơ truy cập trái phép vào dữ liệu cá nhân của bạn. Bằng cách sử dụng Dịch vụ của chúng tôi, bạn chấp nhận rủi ro này. Chúng tôi cũng khuyên bạn nên sử dụng một mật khẩu mạnh và duy nhất cho tài khoản người dùng của mình trên dịch vụ BloodEase cũng như để bảo vệ mật khẩu đó. Bạn nên tiếp tục giới hạn quyền truy cập vào máy tính và trình duyệt của mình và đăng xuất sau khi đã sử dụng Dịch vụ BloodEase."
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/head8"
+                    android:layout_width="375dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="Thay đổi chính sách bảo mật của chúng tôi"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/text_9"
+                    android:layout_width="375dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="Thỉnh thoảng, có thể cần phải thay đổi Chính sách quyền riêng tư này. Do đó, chúng tôi có quyền cập nhật và / hoặc sửa đổi Chính sách quyền riêng tư này bất cứ lúc nào. Vui lòng xem lại Chính sách bảo mật này thường xuyên và đặc biệt là trước khi bạn đăng ký tài khoản với chúng tôi. Ngày sửa đổi cuối cùng được liệt kê ở dưới cùng của Chính sách bảo mật này."
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/line_15" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/footer" />
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

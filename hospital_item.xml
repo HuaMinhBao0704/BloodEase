@@ -1,0 +1,73 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rectangle_bvgn"
+    android:layout_width="371dp"
+    android:layout_height="271dp"
+    android:layout_marginStart="20dp"
+    android:layout_marginTop="10dp"
+    android:orientation="horizontal"
+    android:background="@drawable/rectangle_cnhmct"
+    android:elevation="1dp">
+
+    <LinearLayout
+        android:id="@+id/rectangle_bvgnct"
+        android:layout_width="wrap_content"
+        android:layout_height="271dp"
+        android:orientation="vertical"
+        android:background="@drawable/rectangle_cnhmct">
+
+        <TextView
+            android:id="@+id/bvgn"
+            android:layout_width="201dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:layout_marginStart="10dp"
+            android:textAppearance="@style/name_hospital" />
+
+        <TextView
+            android:id="@+id/diachi_bvgn"
+            android:layout_marginStart="10dp"
+            android:layout_width="201dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="6dp"
+            android:textAppearance="@style/address_hospital" />
+
+        <!-- Ngày đã chọn -->
+        <TextView
+            android:id="@+id/ngay_dang_ky"
+            android:layout_width="201dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="6dp"
+            android:textAppearance="@style/ngay_da_chon_bvgn" />
+
+        <!-- Số người đã đăng ký -->
+        <TextView
+            android:id="@+id/so_nguoi_da_dang_ky"
+            android:layout_width="201dp"
+            android:layout_height="23dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="6dp"
+            android:textAppearance="@style/nguoi_da_dkhm" />
+
+        <!-- Nút đặt lịch -->
+        <Button
+            android:id="@+id/btn_datlich_bvgn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextAppearance.MaterialComponents.Button"
+            android:backgroundTint="#FB6F78"
+            android:textColor="#FFFFFF"
+            android:layout_marginStart="41dp"
+            android:text="Đăng ký"
+            android:layout_marginTop="10dp" />
+
+    </LinearLayout>
+
+    <!-- Phần hình ảnh logo bệnh viện -->
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitCenter" />
+</LinearLayout>
