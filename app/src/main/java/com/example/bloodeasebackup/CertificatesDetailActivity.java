@@ -53,9 +53,18 @@ public class CertificatesDetailActivity extends AppCompatActivity {
 
         backBtn = findViewById(R.id.backBtn);
 
-        backBtn.setOnClickListener(view -> {
-            getOnBackPressedDispatcher().onBackPressed();
-        });
+        //backBtn.setOnClickListener(view -> {
+//            getOnBackPressedDispatcher().onBackPressed();
+//        });
+
+
+            backBtn.setOnClickListener(view -> {
+                // Tạo Intent để chuyển hướng đến trang chủ (BottomNavActivity)
+                Intent intent = new Intent(CertificatesDetailActivity.this, BottomNavActivity.class);
+                startActivity(intent);
+                // Kết thúc CertificatesDetailActivity
+                finish();
+            });
     }
 
     public void getFirestoreUserData(String userEmail) {
