@@ -5,7 +5,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".NewsActivity">
 
     <ImageView
         android:id="@+id/imageView3"
@@ -14,11 +15,16 @@
         android:text="Chuyện tử tế: Người đàn ông 81 lần hiến máu nhân đạo"
         android:textColor="@color/white"
         app:srcCompat="@drawable/screenshot_2023_11_11_152605" />
+
     <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="wrap_content"
-        android:layout_height="120dp"
-        app:srcCompat="@drawable/frame_25" />
+        android:id="@+id/backBtn"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/baseline_arrow_back_ios_new_24"
+        app:layout_constraintStart_toStartOf="parent"
+        android:onClick="onBackPressed"/>
 
     <ScrollView
         android:layout_width="match_parent"

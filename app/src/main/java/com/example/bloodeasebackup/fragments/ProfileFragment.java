@@ -2,24 +2,29 @@ package com.example.bloodeasebackup.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
 
 import com.example.bloodeasebackup.AboutUsActivity;
-import com.example.bloodeasebackup.BottomNavActivity;
 import com.example.bloodeasebackup.CertificatesActivity;
 import com.example.bloodeasebackup.PersonalInfoActivity;
 import com.example.bloodeasebackup.PrivacyActivity;
 import com.example.bloodeasebackup.R;
+import com.example.bloodeasebackup.SignInActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class ProfileFragment extends Fragment {
 
-    ImageView basicInfoArrow, certificatesArrow,aboutUsArrow, privacyArrow;
+    ImageView basicInfoArrow, certificatesArrow, aboutUsArrow, privacyArrow, bookingArrow;
+    Button logoutBtn;
+
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -41,6 +46,10 @@ public class ProfileFragment extends Fragment {
         certificatesArrow = view.findViewById(R.id.certificatesArrow);
         aboutUsArrow = view.findViewById(R.id.aboutUsArrow);
         privacyArrow = view.findViewById(R.id.privacyArrow);
+        bookingArrow = view.findViewById(R.id.bookingArrow);
+        logoutBtn = view.findViewById(R.id.logoutBtn);
+
+        getUserProfile();
 
         basicInfoArrow.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), PersonalInfoActivity.class);
@@ -62,6 +71,26 @@ public class ProfileFragment extends Fragment {
             startActivity(intent);
         });
 
+        logoutBtn.setOnClickListener(v -> {
+            FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent(getActivity(), SignInActivity.class);
+            Toast.makeText(getContext(), "Signed out", Toast.LENGTH_SHORT).show();
+            startActivity(intent);
+        });
+
+        /**
+         * TODO: Navigate to booking screen (Vy's task)
+        bookingArrow.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), BookingActivity.class);
+            startActivity(intent)
+        });
+        */
+
         return view;
+    }
+
+    private void getUserProfile() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        Toast.makeText(getContext(), user.getEmail(), Toast.LENGTH_SHORT).show();
     }
 }

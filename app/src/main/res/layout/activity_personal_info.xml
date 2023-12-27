@@ -188,7 +188,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/sexLabel"
+                    android:id="@+id/genderLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Giới tính"
@@ -231,7 +231,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/bloodGroup"
+                    android:id="@+id/groupOfBlood"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="A+"
@@ -434,12 +434,12 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/directToEditProfile"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:backgroundTint="#F8F1F1"
-        android:text="Lưu"
+        android:text="Điều chỉnh"
         android:textColor="#FB6F78"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

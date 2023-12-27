@@ -1,9 +1,9 @@
 package com.example.bloodeasebackup;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.widget.ImageView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class AboutUsActivity extends AppCompatActivity {
     ImageView backBtn;

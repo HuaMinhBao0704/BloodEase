@@ -1,11 +1,11 @@
 package com.example.bloodeasebackup;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-
-import android.os.Bundle;
 
 import com.example.bloodeasebackup.databinding.ActivityBottomNavBinding;
 import com.example.bloodeasebackup.fragments.HomeFragment;
@@ -21,14 +21,18 @@ public class BottomNavActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityBottomNavBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-        replaceFragment(new HomeFragment());
+        String userEmail = getIntent().getStringExtra("signInEmail");
+        Bundle bundle=new Bundle();
+        bundle.putString("signInEmail", userEmail);
+        HomeFragment homeFragment=new HomeFragment();
+        homeFragment.setArguments(bundle);
+        replaceFragment(homeFragment);
 
         binding.bototmNavigationView.setOnItemSelectedListener(item -> {
             int itemId = item.getItemId();
 
             if (itemId == R.id.home_nav) {
-                replaceFragment(new HomeFragment());
+                replaceFragment(homeFragment);
             } else if (itemId == R.id.notifications_nav) {
                 replaceFragment(new NotificationsTabFragment());
             } else if (itemId == R.id.profile_nav) {

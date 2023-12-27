@@ -1,15 +1,13 @@
 package com.example.bloodeasebackup.fragments;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.fragment.app.Fragment;
+
 import com.example.bloodeasebackup.R;
-import com.google.android.material.tabs.TabLayout;
 
 public class NotificationsFragment extends Fragment {
 

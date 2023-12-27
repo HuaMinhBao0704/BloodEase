@@ -49,8 +49,8 @@
         android:layout_marginTop="17dp"
         android:layout_toEndOf="@+id/tr_ng_th_i"
         android:gravity="top"
-        android:text="Đã xác nhận"
-        android:textColor="#126294"
+        android:text="Chưa xác nhận"
+        android:textColor="#FFA927"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -160,25 +160,25 @@
             android:layout_marginTop="10dp"
             android:gravity="top"
             android:lineSpacingExtra="2sp"
-            android:text="CCCD/CMND"
+            android:text="Email"
             android:textAppearance="@style/titlettcn_cnhm" />
 
         <TextView
-            android:id="@+id/cccd_cnhm"
+            android:id="@+id/email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/titlecccd_cnhm"
             android:layout_marginLeft="17dp"
             android:layout_marginTop="2dp"
             android:gravity="top"
-            android:text="079302000888"
+            android:text="myduyen10@gmail.com"
             android:textAppearance="@style/ttcn_chmn" />
 
         <View
             android:id="@+id/line3_cnhmct"
             android:layout_width="337dp"
             android:layout_height="1.5dp"
-            android:layout_below="@+id/cccd_cnhm"
+            android:layout_below="@+id/email"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="2dp"
             android:background="@drawable/line_cnhmct" />
@@ -192,25 +192,25 @@
             android:layout_marginTop="10dp"
             android:gravity="top"
             android:lineSpacingExtra="2sp"
-            android:text="Địa chỉ"
+            android:text="Số điện thoại"
             android:textAppearance="@style/titlettcn_cnhm" />
 
         <TextView
-            android:id="@+id/diachi_cnhm"
+            android:id="@+id/phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/titlediachi_cnhm"
             android:layout_marginLeft="17dp"
             android:layout_marginTop="2dp"
             android:gravity="top"
-            android:text="78/35 PVC, F14, GV, TPHCM"
+            android:text="0731010101"
             android:textAppearance="@style/ttcn_chmn" />
 
         <View
             android:id="@+id/line4_cnhmct"
             android:layout_width="337dp"
             android:layout_height="1.5dp"
-            android:layout_below="@+id/diachi_cnhm"
+            android:layout_below="@+id/phone"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="2dp"
             android:background="@drawable/line_cnhmct" />
