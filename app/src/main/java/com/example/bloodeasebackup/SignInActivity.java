@@ -25,7 +25,7 @@ public class SignInActivity extends AppCompatActivity {
     private static final String TAG = "GoogleSignIn";
     private static final String ACCOUNT_DB_TAG = "AccountsDB";
     private static final int RC_SIGN_IN = 9001;
-    TextView directToSignUp;
+    TextView directToSignUp, forgotPassword;
     Button loginBtn;
     EditText loginEmail, loginPassword;
     FirebaseAuth mAuth;
@@ -40,12 +40,18 @@ public class SignInActivity extends AppCompatActivity {
         loginEmail = findViewById(R.id.loginEmail);
         loginPassword = findViewById(R.id.loginPassword);
         loginBtn = findViewById(R.id.loginBtn);
+        forgotPassword = findViewById(R.id.forgotPassword);
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 
         directToSignUp.setOnClickListener(view -> {
             Intent intentToSignUp = new Intent(SignInActivity.this, SignUpActivity.class);
             startActivity(intentToSignUp);
+        });
+
+        forgotPassword.setOnClickListener(v -> {
+            Intent intent = new Intent(SignInActivity.this, ForgotPasswordActivity.class);
+            startActivity(intent);
         });
 
         loginBtn.setOnClickListener(view -> {
