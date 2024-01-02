@@ -71,6 +71,12 @@
             android:name=".NewsActivity"
             android:exported="false"/>
         <activity
+            android:name=".ResultActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".DeleteResultActivity"
+            android:exported="false"/>
+        <activity
             android:name=".SelectBloodActivity"
             android:exported="false" />
         <activity

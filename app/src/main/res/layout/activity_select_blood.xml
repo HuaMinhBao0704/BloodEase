@@ -427,7 +427,7 @@
         style="@style/TextAppearance.MaterialComponents.Button"
         android:layout_width="389dp"
         android:layout_height="wrap_content"
-        android:text="Tìm kiếm"
+        android:text="Tiếp theo"
         android:layout_below="@id/groupOfBlood"
         android:layout_marginHorizontal="15dp"
         android:layout_marginTop="200dp"

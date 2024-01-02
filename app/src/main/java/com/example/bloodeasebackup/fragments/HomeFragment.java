@@ -14,6 +14,7 @@ import android.widget.EditText;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.bloodeasebackup.LikedListActivity;
 import com.example.bloodeasebackup.R;
 import com.example.bloodeasebackup.SelectBloodActivity;
 import com.example.bloodeasebackup.adapters.DonationBenefitsAdapter;
@@ -77,7 +78,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void navigateToLikedListActivity(String selectedDate, String userEmail) {
-        Intent intent = new Intent(requireContext(), SelectBloodActivity.class);
+        Intent intent = new Intent(requireContext(), LikedListActivity.class);
         Log.d(TAG, "testt: " + selectedDate);
         intent.putExtra("signInEmail", userEmail);
         intent.putExtra("selectedDate", selectedDate);

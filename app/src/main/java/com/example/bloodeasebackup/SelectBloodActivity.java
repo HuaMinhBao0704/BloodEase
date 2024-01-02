@@ -42,14 +42,22 @@ public class SelectBloodActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String selectedBloodAmount = bloodAmountSpinner.getSelectedItem().toString();
                 if (!selectedBloodGroup.isEmpty()) {
-                    Intent likedListIntent = new Intent(SelectBloodActivity.this, LikedListActivity.class);
+                    Intent likedListIntent = new Intent(SelectBloodActivity.this, ResultActivity.class);
                     String selectedDate = getIntent().getStringExtra("selectedDate");
-                    likedListIntent.putExtra("selectedDate", selectedDate);
+                    String tenBVGN = getIntent().getStringExtra("bvgn");
                     String userEmail = getIntent().getStringExtra("signInEmail");
+                    String diaChiBVGN = getIntent().getStringExtra("diachi_bvgn");
+
+                    likedListIntent.putExtra("selectedDate", selectedDate);
+                    likedListIntent.putExtra("diachi_bvgn", diaChiBVGN);
                     likedListIntent.putExtra("signInEmail", userEmail);
-                    likedListIntent.putExtra("SELECTED_BLOOD_GROUP", selectedBloodGroup);
+                    likedListIntent.putExtra("bvgn", tenBVGN);
+                    //likedListIntent.putExtra("SELECTED_BLOOD_GROUP", selectedBloodGroup);
                     likedListIntent.putExtra("selectedBloodAmount", selectedBloodAmount);
                     startActivity(likedListIntent);
+
+
+
                 } else {
                     Toast.makeText(SelectBloodActivity.this, "Vui lòng chọn nhóm máu trước", Toast.LENGTH_SHORT).show();
                 }

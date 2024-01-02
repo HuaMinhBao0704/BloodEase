@@ -12,7 +12,10 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 
 import com.example.bloodeasebackup.AboutUsActivity;
+import com.example.bloodeasebackup.BottomNavActivity;
 import com.example.bloodeasebackup.CertificatesActivity;
+import com.example.bloodeasebackup.DeleteResultActivity;
+import com.example.bloodeasebackup.LikedListActivity;
 import com.example.bloodeasebackup.PersonalInfoActivity;
 import com.example.bloodeasebackup.PrivacyActivity;
 import com.example.bloodeasebackup.R;
@@ -22,7 +25,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class ProfileFragment extends Fragment {
 
-    ImageView basicInfoArrow, certificatesArrow, aboutUsArrow, privacyArrow, bookingArrow;
+    ImageView basicInfoArrow, certificatesArrow, aboutUsArrow, privacyArrow, bookingArrow,lichhenArrow;
     Button logoutBtn;
 
 
@@ -47,9 +50,14 @@ public class ProfileFragment extends Fragment {
         aboutUsArrow = view.findViewById(R.id.aboutUsArrow);
         privacyArrow = view.findViewById(R.id.privacyArrow);
         bookingArrow = view.findViewById(R.id.bookingArrow);
+        lichhenArrow =view.findViewById(R.id.lichhenArrow);
         logoutBtn = view.findViewById(R.id.logoutBtn);
 
         getUserProfile();
+        lichhenArrow.setOnClickListener(v->{
+            Intent intent = new Intent(getActivity(), DeleteResultActivity.class);
+            startActivity(intent);
+        });
 
         basicInfoArrow.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), PersonalInfoActivity.class);
@@ -78,13 +86,13 @@ public class ProfileFragment extends Fragment {
             startActivity(intent);
         });
 
-        /**
-         * TODO: Navigate to booking screen (Vy's task)
+
+         // TODO: Navigate to booking screen (Vy's task)
         bookingArrow.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), BookingActivity.class);
-            startActivity(intent)
+            Intent intent = new Intent(getActivity(), LikedListActivity.class);
+            startActivity(intent);
         });
-        */
+
 
         return view;
     }

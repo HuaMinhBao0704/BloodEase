@@ -77,9 +77,10 @@ public class ChooseHospitalsActivity extends AppCompatActivity implements OnMapR
                 String selectedBloodAmount =getIntent().getStringExtra("selectedBloodAmount");
                 String tenBVGN = intent.getStringExtra("bvgn");
                 String selectedDate = getIntent().getStringExtra("selectedDate");
-                Intent certificatesIntent = new Intent(ChooseHospitalsActivity.this, CertificatesActivity.class);
+                Intent certificatesIntent = new Intent(ChooseHospitalsActivity.this, SelectBloodActivity.class);
                 String userEmail = getIntent().getStringExtra("signInEmail");
-
+                String diaChiBVGN = getIntent().getStringExtra("diachi_bvgn");
+                certificatesIntent.putExtra("diachi_bvgn", diaChiBVGN);
                 certificatesIntent.putExtra("signInEmail", userEmail);
                 certificatesIntent.putExtra("bvgn", tenBVGN);
                 certificatesIntent.putExtra("selectedDate", selectedDate);
