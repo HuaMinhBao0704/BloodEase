@@ -76,6 +76,8 @@ public class ChooseHospitalsActivity extends AppCompatActivity implements OnMapR
                 // Create an Intent to start CertificatesActivity
                 String selectedBloodAmount =getIntent().getStringExtra("selectedBloodAmount");
                 String tenBVGN = intent.getStringExtra("bvgn");
+                Spinner timeSlotSpinner = findViewById(R.id.timeSlotSpinner);
+                String time = timeSlotSpinner.getSelectedItem().toString();
                 String selectedDate = getIntent().getStringExtra("selectedDate");
                 Intent certificatesIntent = new Intent(ChooseHospitalsActivity.this, SelectBloodActivity.class);
                 String userEmail = getIntent().getStringExtra("signInEmail");
@@ -83,6 +85,7 @@ public class ChooseHospitalsActivity extends AppCompatActivity implements OnMapR
                 certificatesIntent.putExtra("diachi_bvgn", diaChiBVGN);
                 certificatesIntent.putExtra("signInEmail", userEmail);
                 certificatesIntent.putExtra("bvgn", tenBVGN);
+                certificatesIntent.putExtra("timeSlotSpinner", time);
                 certificatesIntent.putExtra("selectedDate", selectedDate);
                 certificatesIntent.putExtra("selectedBloodAmount", selectedBloodAmount);
                 startActivity(certificatesIntent);

@@ -47,11 +47,13 @@ public class SelectBloodActivity extends AppCompatActivity {
                     String tenBVGN = getIntent().getStringExtra("bvgn");
                     String userEmail = getIntent().getStringExtra("signInEmail");
                     String diaChiBVGN = getIntent().getStringExtra("diachi_bvgn");
-
+                    //Spinner timeSlotSpinner = findViewById(R.id.timeSlotSpinner);
+                    //String time = timeSlotSpinner.getSelectedItem().toString();
                     likedListIntent.putExtra("selectedDate", selectedDate);
                     likedListIntent.putExtra("diachi_bvgn", diaChiBVGN);
                     likedListIntent.putExtra("signInEmail", userEmail);
                     likedListIntent.putExtra("bvgn", tenBVGN);
+                   // likedListIntent.putExtra("timeSlotSpinner", time);
                     //likedListIntent.putExtra("SELECTED_BLOOD_GROUP", selectedBloodGroup);
                     likedListIntent.putExtra("selectedBloodAmount", selectedBloodAmount);
                     startActivity(likedListIntent);

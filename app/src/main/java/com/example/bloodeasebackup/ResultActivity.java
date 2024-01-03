@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +33,7 @@ public class ResultActivity extends AppCompatActivity {
         TextView ngayDangKyTextView = findViewById(R.id.dmyhienmau_cnhm);
         TextView emailView = findViewById(R.id.email);
         TextView diachiTextView=findViewById(R.id.diachi);
+        TextView timet=findViewById(R.id.timet);
 
         // Nhận dữ liệu từ Intent
         Intent intentC = getIntent();
@@ -41,12 +43,15 @@ public class ResultActivity extends AppCompatActivity {
             String ngayDangKy = intentC.getStringExtra("selectedDate");
             String userEmail1 = getIntent().getStringExtra("signInEmail");
             String diachiBVGN = getIntent().getStringExtra("diachi_bvgn");
+//            Spinner timeSlotSpinner = findViewById(R.id.timeSlotSpinner);
+//            String time = timeSlotSpinner.getSelectedItem().toString();
 
 
             // Hiển thị dữ liệu trong các TextView
             tenBVGNTextView.setText(tenBVGN);
             diachiTextView.setText(diachiBVGN);
             ngayDangKyTextView.setText(ngayDangKy);
+            //timet.setText(time);
 
             // Lấy dữ liệu người dùng từ Firestore
             String userEmail = userEmail1;

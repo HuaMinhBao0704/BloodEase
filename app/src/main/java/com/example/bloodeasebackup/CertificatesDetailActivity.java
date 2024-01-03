@@ -3,6 +3,7 @@ package com.example.bloodeasebackup;
 import static android.content.ContentValues.TAG;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
@@ -35,20 +36,21 @@ public class CertificatesDetailActivity extends AppCompatActivity {
         // Nhận dữ liệu từ Intent
         Intent intentC = getIntent();
         if (intentC != null) {
-            String tenBVGN = intentC.getStringExtra("bvgn");
-            String selectedBloodAmount = intentC.getStringExtra("selectedBloodAmount");
-            String ngayDangKy = intentC.getStringExtra("selectedDate");
+            //String tenBVGN = intentC.getStringExtra("bvgn");
+            //String selectedBloodAmount = intentC.getStringExtra("selectedBloodAmount");
+            //String ngayDangKy = intentC.getStringExtra("selectedDate");
             String userEmail1 = getIntent().getStringExtra("signInEmail");
 
             // Hiển thị dữ liệu trong các TextView
-            tenBVGNTextView.setText(tenBVGN);
-            amountOfBloodTextView.setText(selectedBloodAmount);
-            ngayDangKyTextView.setText(ngayDangKy);
+            //tenBVGNTextView.setText(tenBVGN);
+            //amountOfBloodTextView.setText(selectedBloodAmount);
+            //ngayDangKyTextView.setText(ngayDangKy);
 
             // Lấy dữ liệu người dùng từ Firestore
             String userEmail = userEmail1;
             Log.d(TAG, "testtt: " + userEmail1);// Thay đổi thành email đăng nhập
             getFirestoreUserData(userEmail);
+            getFirestoreCertificatesData(userEmail);
         }
 
         backBtn = findViewById(R.id.backBtn);
@@ -92,6 +94,53 @@ public class CertificatesDetailActivity extends AppCompatActivity {
                             phoneView.setText(phone);
                             TextView emailView = findViewById(R.id.email);
                             emailView.setText(userEmail);
+                        }
+                    } else {
+                        // Xử lý khi truy vấn không thành công
+                        // Ví dụ: Hiển thị thông báo lỗi
+                        Toast.makeText(getApplicationContext(), "Lỗi khi lấy dữ liệu từ Firestore", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+    public void getFirestoreCertificatesData(String userEmail) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        // Thực hiện truy vấn để lấy dữ liệu người dùng với điều kiện email
+        db.collection("certificates")
+                .whereEqualTo("email", userEmail)
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            // Lấy dữ liệu từ document và hiển thị hoặc xử lý theo ý muốn
+                            String benhvien = document.getString("bvgn");
+                            String amount = document.getString("amount");
+                            String eventId= document.getString("eventId");
+                            String blood= document.getString("blood");
+                            boolean isVerified = document.getBoolean("isVerified");
+                            Timestamp ngaydangky = document.getTimestamp("date");
+                            String ngayChonFirestore = ngaydangky != null ?
+                                    new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(ngaydangky.toDate()) : "";
+                            // Hiển thị dữ liệu trong TextView
+                            TextView fullNameTextView = findViewById(R.id.tencs_cnhm);
+                            fullNameTextView.setText(benhvien);
+                            TextView dobView = findViewById(R.id.dmyhienmau_cnhm);
+                            dobView.setText(ngayChonFirestore);
+                            TextView phoneView = findViewById(R.id.luongmauhien_cnhm);
+                            phoneView.setText(amount);
+                            TextView emailView = findViewById(R.id.nhommau_cnhm);
+                            emailView.setText(blood);
+                            TextView event = findViewById(R.id.soseri_cnhm);
+                            event.setText(eventId);
+                            TextView tinhtrangTextView = findViewById(R.id.x_c_nh_n);
+                            if (isVerified) {
+                                tinhtrangTextView.setText("Đã xác thực");
+                                tinhtrangTextView.setTextColor(Color.parseColor("#126294"));  // Set text color to green
+                            } else {
+                                tinhtrangTextView.setText("Chờ xác thực");
+                                tinhtrangTextView.setTextColor(Color.parseColor("#FFA927"));  // Set text color to yellow
+                            }
                         }
                     } else {
                         // Xử lý khi truy vấn không thành công

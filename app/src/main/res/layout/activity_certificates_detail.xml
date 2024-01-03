@@ -23,7 +23,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="45dp"
         android:gravity="center_horizontal|top"
-        android:text="Chứng nhận hiến máu"
+        android:text="THÔNG TIN CHỨNG NHẬN"
         android:textColor="@color/titlePink"
         android:textSize="26sp"
         android:textStyle="bold" />
@@ -290,7 +290,7 @@
             android:layout_marginTop="10dp"
             android:gravity="top"
             android:lineSpacingExtra="2sp"
-            android:text="Lượng máu cần hiến"
+            android:text="Lượng máu"
             android:textAppearance="@style/titlettcn_cnhm" />
 
         <TextView

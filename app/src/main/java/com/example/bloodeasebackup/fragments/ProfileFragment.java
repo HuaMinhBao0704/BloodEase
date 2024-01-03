@@ -66,6 +66,10 @@ public class ProfileFragment extends Fragment {
 
         certificatesArrow.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), CertificatesActivity.class);
+            String userEmail = getUserEmailFromBottomNavActivity();
+            Bundle bundle = new Bundle();
+            bundle.putString("signInEmail", userEmail);
+            intent.putExtras(bundle);
             startActivity(intent);
         });
 
@@ -96,7 +100,12 @@ public class ProfileFragment extends Fragment {
 
         return view;
     }
-
+    private String getUserEmailFromBottomNavActivity() {
+        if (getActivity() != null && getActivity() instanceof BottomNavActivity) {
+            return ((BottomNavActivity) getActivity()).getUserEmail();
+        }
+        return "";
+    }
     private void getUserProfile() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         Toast.makeText(getContext(), user.getEmail(), Toast.LENGTH_SHORT).show();

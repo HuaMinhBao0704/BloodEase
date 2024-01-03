@@ -29,13 +29,176 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <RelativeLayout
+        android:id="@+id/thongtincanhan"
+        android:layout_width="371dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rectangle_cnhmct"
+        android:elevation="6dp"
+        android:paddingVertical="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/certificateTitle"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/ttcn_cnhm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="THÔNG TIN CÁ NHÂN"
+            android:textColor="@color/titlePink"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <View
+            android:id="@+id/line_cnhmct"
+            android:layout_width="371dp"
+            android:layout_height="1.5dp"
+            android:layout_below="@+id/ttcn_cnhm"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/line_cnhmct" />
+
+
+        <TextView
+            android:id="@+id/hovaten_cnhm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/line_cnhmct"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="10dp"
+            android:gravity="top"
+            android:lineSpacingExtra="2sp"
+            android:text="Họ và tên"
+            android:textAppearance="@style/titlettcn_cnhm" />
+
+
+        <TextView
+            android:id="@+id/ten"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/hovaten_cnhm"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="2dp"
+            android:gravity="top"
+            android:text="My Duyen"
+            android:textAppearance="@style/ttcn_chmn" />
+
+        <View
+            android:id="@+id/line1_cnhmct"
+            android:layout_width="337dp"
+            android:layout_height="1.5dp"
+            android:layout_below="@+id/ten"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/line_cnhmct" />
+
+        <TextView
+            android:id="@+id/ngaysinht"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/line1_cnhmct"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="10dp"
+            android:gravity="top"
+            android:lineSpacingExtra="2sp"
+            android:text="Ngày sinh"
+            android:textAppearance="@style/titlettcn_cnhm" />
+
+        <TextView
+            android:id="@+id/ngaysinh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ngaysinht"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="2dp"
+            android:gravity="top"
+            android:text="01/02/2002"
+            android:textAppearance="@style/ttcn_chmn" />
+
+        <View
+            android:id="@+id/line2_cnhmct"
+            android:layout_width="337dp"
+            android:layout_height="1.5dp"
+            android:layout_below="@+id/ngaysinh"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/line_cnhmct" />
+
+        <TextView
+            android:id="@+id/titlecccd_cnhm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/line2_cnhmct"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="10dp"
+            android:gravity="top"
+            android:lineSpacingExtra="2sp"
+            android:text="Email"
+            android:textAppearance="@style/titlettcn_cnhm" />
+
+        <TextView
+            android:id="@+id/gmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/titlecccd_cnhm"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="2dp"
+            android:gravity="top"
+            android:text="myduyen10@gmail.com"
+            android:textAppearance="@style/ttcn_chmn" />
+
+        <View
+            android:id="@+id/line3_cnhmct"
+            android:layout_width="337dp"
+            android:layout_height="1.5dp"
+            android:layout_below="@+id/gmail"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/line_cnhmct" />
+
+        <TextView
+            android:id="@+id/titlediachi_cnhm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/line3_cnhmct"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="10dp"
+            android:gravity="top"
+            android:lineSpacingExtra="2sp"
+            android:text="Số điện thoại"
+            android:textAppearance="@style/titlettcn_cnhm" />
+
+        <TextView
+            android:id="@+id/sdt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/titlediachi_cnhm"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="2dp"
+            android:gravity="top"
+            android:text="0731010101"
+            android:textAppearance="@style/ttcn_chmn" />
+
+        <View
+            android:id="@+id/line4_cnhmct"
+            android:layout_width="337dp"
+            android:layout_height="1.5dp"
+            android:layout_below="@+id/sdt"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/line_cnhmct" />
+
+    </RelativeLayout>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="106dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/certificateTitle">
+        android:layout_marginTop="100dp"
+        app:layout_constraintTop_toBottomOf="@+id/thongtincanhan">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -46,9 +209,11 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="300dp"
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/frame1_cnhm"
-                android:layout_marginBottom="10dp">
+                android:layout_marginBottom="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/thongtincanhan">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -203,7 +368,7 @@
                         android:layout_marginLeft="88dp"
                         android:layout_marginTop="6dp"
                         android:gravity="top"
-                        android:text="Đã chứng nhận"
+                        android:text="Đã xác thực"
                         android:textColor="#126294" />
 
                     <TextView

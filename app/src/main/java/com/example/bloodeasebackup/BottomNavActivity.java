@@ -43,6 +43,9 @@ public class BottomNavActivity extends AppCompatActivity {
         });
 
     }
+    public String getUserEmail() {
+        return getIntent().getStringExtra("signInEmail");
+    }
 
     public void replaceFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
