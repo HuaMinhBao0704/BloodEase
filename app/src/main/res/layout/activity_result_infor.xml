@@ -289,7 +289,7 @@
             android:layout_marginLeft="17dp"
             android:layout_marginTop="2dp"
             android:gravity="top"
-            android:text="7g"
+            android:text="2:00 PM"
             android:textAppearance="@style/ttcn_chmn" />
 
         <View

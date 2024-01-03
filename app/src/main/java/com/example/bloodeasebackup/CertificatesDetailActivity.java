@@ -71,7 +71,7 @@ public class CertificatesDetailActivity extends AppCompatActivity {
 
             backBtn.setOnClickListener(view -> {
                 // Tạo Intent để chuyển hướng đến trang chủ (BottomNavActivity)
-                Intent intent = new Intent(CertificatesDetailActivity.this, BottomNavActivity.class);
+                Intent intent = new Intent(CertificatesDetailActivity.this, CertificatesActivity.class);
                 startActivity(intent);
                 // Kết thúc CertificatesDetailActivity
                 finish();
@@ -138,8 +138,8 @@ public class CertificatesDetailActivity extends AppCompatActivity {
                             dobView.setText(ngayChonFirestore);
                             TextView phoneView = findViewById(R.id.luongmauhien_cnhm);
                             phoneView.setText(amount);
-                            TextView emailView = findViewById(R.id.nhommau_cnhm);
-                            emailView.setText(blood);
+                            //TextView emailView = findViewById(R.id.nhommau_cnhm);
+                            //emailView.setText(blood);
                             TextView event = findViewById(R.id.soseri_cnhm);
                             event.setText(eventId);
                             TextView tinhtrangTextView = findViewById(R.id.x_c_nh_n);

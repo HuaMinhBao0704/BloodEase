@@ -1,0 +1,101 @@
+<!-- certificate_item.xml -->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/frame1_cnhm"
+    android:layout_marginBottom="10dp"
+    android:id="@+id/certificatesLayout">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="118dp"
+        android:layout_marginEnd="100dp"
+        android:src="@drawable/chm" />
+
+    <TextView
+        android:id="@+id/testBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="178dp"
+        android:layout_marginTop="116dp"
+        android:gravity="center"
+        android:text="Xem chi tiết"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/rectangle1_cnhm">
+
+        <View
+            android:layout_width="23.26dp"
+            android:layout_height="31.59dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="19dp"
+            android:background="@drawable/logocnhm" />
+
+        <!-- Usage -->
+        <!-- Usage -->
+        <TextView
+            android:id="@+id/amount_of_blood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="60dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="250ml"
+            android:textColor="@color/titlePink"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tinhtrang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="88dp"
+            android:layout_marginTop="6dp"
+            android:gravity="top"
+            android:text="Chờ xác thực"
+            android:textColor="#FFA927" />
+
+        <TextView
+            android:id="@+id/ten_bvgn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="88dp"
+            android:layout_marginTop="28dp"
+            android:gravity="top"
+            android:text="Bệnh viện truyền máu - Huyết học TP HCM"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/soseri"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="88dp"
+            android:layout_marginTop="57dp"
+            android:gravity="top"
+            android:text="Số seri: 1275749362" />
+
+        <TextView
+            android:id="@+id/ngay_dang_ky"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="88dp"
+            android:layout_marginTop="79dp"
+            android:gravity="top"
+            android:text="Thời gian: 01/11/2023"
+            android:textColor="#959595" />
+    </RelativeLayout>
+</RelativeLayout>

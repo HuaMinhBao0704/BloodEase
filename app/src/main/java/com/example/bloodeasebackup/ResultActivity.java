@@ -13,6 +13,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.Timestamp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
@@ -21,12 +23,17 @@ import java.util.Locale;
 
 public class ResultActivity extends AppCompatActivity {
     ImageView backBtn;
+    FirebaseFirestore db;
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result_infor);
-
+        db = FirebaseFirestore.getInstance();
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        String userEmail = currentUser.getEmail();
         // Ánh xạ các TextView từ layout
         TextView tenBVGNTextView = findViewById(R.id.tencs_cnhm);
         //TextView amountOfBloodTextView = findViewById(R.id.luongmauhien_cnhm);
@@ -41,7 +48,7 @@ public class ResultActivity extends AppCompatActivity {
             String tenBVGN = intentC.getStringExtra("bvgn");
             //String selectedBloodAmount = intentC.getStringExtra("selectedBloodAmount");
             String ngayDangKy = intentC.getStringExtra("selectedDate");
-            String userEmail1 = getIntent().getStringExtra("signInEmail");
+            //String userEmail1 = getIntent().getStringExtra("signInEmail");
             String diachiBVGN = getIntent().getStringExtra("diachi_bvgn");
 //            Spinner timeSlotSpinner = findViewById(R.id.timeSlotSpinner);
 //            String time = timeSlotSpinner.getSelectedItem().toString();
@@ -54,8 +61,8 @@ public class ResultActivity extends AppCompatActivity {
             //timet.setText(time);
 
             // Lấy dữ liệu người dùng từ Firestore
-            String userEmail = userEmail1;
-            Log.d(TAG, "testtt: " + userEmail1);// Thay đổi thành email đăng nhập
+            //String userEmail = userEmail1;
+            //Log.d(TAG, "testtt: " + userEmail1);// Thay đổi thành email đăng nhập
             getFirestoreUserData(userEmail);
         }
 

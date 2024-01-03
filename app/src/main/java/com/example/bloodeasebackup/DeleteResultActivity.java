@@ -3,6 +3,7 @@ package com.example.bloodeasebackup;
 import static android.content.ContentValues.TAG;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -33,7 +34,7 @@ public class DeleteResultActivity extends AppCompatActivity {
 
         TextView tenBVGNTextView = findViewById(R.id.tencs_cnhm);
         TextView ngayDangKyTextView = findViewById(R.id.dmyhienmau_cnhm);
-        TextView emailView = findViewById(R.id.email);
+        //TextView emailView = findViewById(R.id.email);
         TextView diachiTextView = findViewById(R.id.diachi);
         TextView noAppointmentMessage = findViewById(R.id.noAppointmentMessage);
         ImageView imglogo = findViewById(R.id.imglogo);
@@ -46,7 +47,7 @@ public class DeleteResultActivity extends AppCompatActivity {
         if (intentC != null) {
             String tenBVGN = intentC.getStringExtra("bvgn");
             String ngayDangKy = intentC.getStringExtra("selectedDate");
-            String userEmail1 = getIntent().getStringExtra("signInEmail");
+            //String userEmail1 = getIntent().getStringExtra("signInEmail");
             String diachiBVGN = getIntent().getStringExtra("diachi_bvgn");
 
             tenBVGNTextView.setText(tenBVGN);
@@ -54,8 +55,9 @@ public class DeleteResultActivity extends AppCompatActivity {
             ngayDangKyTextView.setText(ngayDangKy);
 
             //String userEmail = userEmail1;
-            Log.d(TAG, "testtt: " + userEmail1);
+            //Log.d(TAG, "testtt: " + userEmail1);
             getFirestoreUserData(userEmail);
+            getFirestoreCertificatesData(userEmail);
         }
 
         backBtn = findViewById(R.id.backBtn);
@@ -92,10 +94,6 @@ public class DeleteResultActivity extends AppCompatActivity {
     private void hideAllContent() {
         // Ẩn tất cả nội dung có sẵn
         findViewById(R.id.thongbao).setVisibility(View.GONE);
-//        findViewById(R.id.dmyhienmau_cnhm).setVisibility(View.GONE);
-//        findViewById(R.id.email).setVisibility(View.GONE);
-//        findViewById(R.id.diachi).setVisibility(View.GONE);
-//        // ... (thêm tất cả các thành phần khác cần ẩn)
         findViewById(R.id.confirmButton).setVisibility(View.GONE);
         findViewById(R.id.rectangle_cnhmct).setVisibility(View.GONE);
         findViewById(R.id.rectangle_tthm).setVisibility(View.GONE);
@@ -126,6 +124,43 @@ public class DeleteResultActivity extends AppCompatActivity {
                             emailView.setText(userEmail);
                         }
                     } else {
+                        Toast.makeText(getApplicationContext(), "Lỗi khi lấy dữ liệu từ Firestore", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+    public void getFirestoreCertificatesData(String userEmail) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        // Thực hiện truy vấn để lấy dữ liệu người dùng với điều kiện email
+        db.collection("certificates")
+                .whereEqualTo("email", userEmail)
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            // Lấy dữ liệu từ document và hiển thị hoặc xử lý theo ý muốn
+                            String benhvien = document.getString("bvgn");
+                            String diachi= document.getString("address");
+                            String eventId= document.getString("eventId");
+                            Timestamp ngaydangky = document.getTimestamp("date");
+                            String ngayChonFirestore = ngaydangky != null ?
+                                    new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(ngaydangky.toDate()) : "";
+                            // Hiển thị dữ liệu trong TextView
+                            TextView fullNameTextView = findViewById(R.id.tencs_cnhm);
+                            fullNameTextView.setText(benhvien);
+                            TextView dobView = findViewById(R.id.dmyhienmau_cnhm);
+                            dobView.setText(ngayChonFirestore);
+                            TextView addressTextView = findViewById(R.id.diachi);
+                            addressTextView.setText(diachi);
+
+
+
+
+                        }
+                    } else {
+                        // Xử lý khi truy vấn không thành công
+                        // Ví dụ: Hiển thị thông báo lỗi
                         Toast.makeText(getApplicationContext(), "Lỗi khi lấy dữ liệu từ Firestore", Toast.LENGTH_SHORT).show();
                     }
                 });

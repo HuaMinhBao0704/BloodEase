@@ -90,7 +90,6 @@ public class LikedListActivity extends AppCompatActivity {
 
         for (String documentId : documentIds) {
             View hospitalView = getLayoutInflater().inflate(R.layout.hospital_item, containerLayout, false);
-
             TextView tenBVGNTextView = hospitalView.findViewById(R.id.bvgn);
             TextView diaChiBVGNTextView = hospitalView.findViewById(R.id.diachi_bvgn);
             TextView ngayChonTextView = hospitalView.findViewById(R.id.ngay_dang_ky);
@@ -138,6 +137,7 @@ public class LikedListActivity extends AppCompatActivity {
                                             chooseHospitalIntent.putExtra("signInEmail", userEmail);
                                             chooseHospitalIntent.putExtra("diachi_bvgn", diaChiBVGN);
                                             chooseHospitalIntent.putExtra("bvgn", tenBVGN);
+                                            chooseHospitalIntent.putExtra("eventId", documentId);
                                             chooseHospitalIntent.putExtra("selectedDate", selectedDate);
                                             chooseHospitalIntent.putExtra("selectedBloodAmount", selectedBloodAmount);
                                             chooseHospitalIntent.putExtra("vitri", viTriLatLng);

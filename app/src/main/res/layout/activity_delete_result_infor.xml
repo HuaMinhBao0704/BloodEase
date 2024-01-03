@@ -289,7 +289,7 @@
             android:layout_marginLeft="17dp"
             android:layout_marginTop="2dp"
             android:gravity="top"
-            android:text="7g"
+            android:text="2:00 PM"
             android:textAppearance="@style/ttcn_chmn" />
 
         <View
@@ -333,43 +333,43 @@
             android:layout_marginTop="2dp"
             android:background="@drawable/line_cnhmct" />
 
-        <TextView
-            android:id="@+id/titlenhommau_cnhm"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/line8_cnhmct"
-            android:layout_marginLeft="17dp"
-            android:layout_marginTop="10dp"
-            android:gravity="top"
-            android:lineSpacingExtra="2sp"
-            android:text="Nhóm máu"
-            android:textAppearance="@style/titlettcn_cnhm" />
+<!--        <TextView-->
+<!--            android:id="@+id/titlenhommau_cnhm"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@+id/line8_cnhmct"-->
+<!--            android:layout_marginLeft="17dp"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:gravity="top"-->
+<!--            android:lineSpacingExtra="2sp"-->
+<!--            android:text="Nhóm máu"-->
+<!--            android:textAppearance="@style/titlettcn_cnhm" />-->
 
-        <TextView
-            android:id="@+id/nhommau_cnhm"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/titlenhommau_cnhm"
-            android:layout_marginLeft="17dp"
-            android:layout_marginTop="2dp"
-            android:gravity="top"
-            android:text="B-"
-            android:textAppearance="@style/ttcn_chmn" />
+<!--        <TextView-->
+<!--            android:id="@+id/nhommau_cnhm"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@+id/titlenhommau_cnhm"-->
+<!--            android:layout_marginLeft="17dp"-->
+<!--            android:layout_marginTop="2dp"-->
+<!--            android:gravity="top"-->
+<!--            android:text="B-"-->
+<!--            android:textAppearance="@style/ttcn_chmn" />-->
 
-        <View
-            android:id="@+id/line9_cnhmct"
-            android:layout_width="337dp"
-            android:layout_height="1.5dp"
-            android:layout_below="@+id/nhommau_cnhm"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="2dp"
-            android:background="@drawable/line_cnhmct" />
+<!--        <View-->
+<!--            android:id="@+id/line9_cnhmct"-->
+<!--            android:layout_width="337dp"-->
+<!--            android:layout_height="1.5dp"-->
+<!--            android:layout_below="@+id/nhommau_cnhm"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:layout_marginTop="2dp"-->
+<!--            android:background="@drawable/line_cnhmct" />-->
 
         <TextView
             android:id="@+id/address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/line9_cnhmct"
+            android:layout_below="@+id/line8_cnhmct"
             android:layout_marginLeft="17dp"
             android:layout_marginTop="10dp"
             android:gravity="top"

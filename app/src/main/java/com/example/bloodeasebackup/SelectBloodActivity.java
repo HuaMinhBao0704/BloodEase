@@ -2,26 +2,49 @@ package com.example.bloodeasebackup;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.HashMap;
+import java.util.Map;
+
 public class SelectBloodActivity extends AppCompatActivity {
 
     private String selectedBloodGroup = "";
     private Spinner bloodAmountSpinner;
 
-
+    FirebaseFirestore db;
+    FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_blood);
 
         bloodAmountSpinner = findViewById(R.id.bloodAmountSpinner);
+        db = FirebaseFirestore.getInstance();
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        String email = currentUser.getEmail();
 
+        Intent chooseHospitalIntent = getIntent();
+        String eventId = chooseHospitalIntent.getStringExtra("eventId");
+        String tenBVGN = chooseHospitalIntent.getStringExtra("bvgn");
 
         // Thiết lập sự kiện click cho mỗi nhóm máu
         setBloodGroupClickListener(R.id.rectangle_ABplus, "AB+");
@@ -45,17 +68,56 @@ public class SelectBloodActivity extends AppCompatActivity {
                     Intent likedListIntent = new Intent(SelectBloodActivity.this, ResultActivity.class);
                     String selectedDate = getIntent().getStringExtra("selectedDate");
                     String tenBVGN = getIntent().getStringExtra("bvgn");
-                    String userEmail = getIntent().getStringExtra("signInEmail");
+                    //String userEmail = getIntent().getStringExtra("signInEmail");
                     String diaChiBVGN = getIntent().getStringExtra("diachi_bvgn");
                     //Spinner timeSlotSpinner = findViewById(R.id.timeSlotSpinner);
                     //String time = timeSlotSpinner.getSelectedItem().toString();
                     likedListIntent.putExtra("selectedDate", selectedDate);
                     likedListIntent.putExtra("diachi_bvgn", diaChiBVGN);
-                    likedListIntent.putExtra("signInEmail", userEmail);
+                    //likedListIntent.putExtra("signInEmail", userEmail);
                     likedListIntent.putExtra("bvgn", tenBVGN);
                    // likedListIntent.putExtra("timeSlotSpinner", time);
                     //likedListIntent.putExtra("SELECTED_BLOOD_GROUP", selectedBloodGroup);
                     likedListIntent.putExtra("selectedBloodAmount", selectedBloodAmount);
+
+
+                    SimpleDateFormat dobFormat = new SimpleDateFormat("dd/MM/yyyy");
+
+                    // Todo: create certificate in firestore
+                    /*
+                     * @param email
+                     * @param eventId
+                     * @param tenBVGN
+                     * @param isVerified (default is false)
+                     *  */
+                    Map<String, Object> certificateInfo = new HashMap<>();
+
+                    certificateInfo.put("email", email);
+                    certificateInfo.put("eventId", eventId);
+                    certificateInfo.put("bvgn", tenBVGN);
+                    certificateInfo.put("isVerified", false);
+                    certificateInfo.put("amount", selectedBloodAmount);
+                    certificateInfo.put("address", diaChiBVGN);
+
+                    try {
+                        certificateInfo.put("date", dobFormat.parse(selectedDate));
+                    } catch (ParseException e) {
+                        throw new RuntimeException(e);
+                    }
+                    db.collection("certificates").add(certificateInfo)
+                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                @Override
+                                public void onSuccess(DocumentReference documentReference) {
+                                    Log.d("Certificate", "Account added with ID: " + documentReference.getId());
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Log.w("Certificate", "Error adding document", e);
+                                }
+                            });
+
                     startActivity(likedListIntent);
 
 

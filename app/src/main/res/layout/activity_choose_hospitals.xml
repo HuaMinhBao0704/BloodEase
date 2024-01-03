@@ -26,7 +26,7 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="50dp"
-        android:text="BỆNH VIỆN GẦN NHẤT"
+        android:text="ĐẶT LỊCH HIẾN MÁU"
         android:textColor="@color/titlePink"
         android:textStyle="bold"
         android:textSize="20sp"
