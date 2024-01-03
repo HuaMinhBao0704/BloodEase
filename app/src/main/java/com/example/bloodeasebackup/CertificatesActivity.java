@@ -26,13 +26,13 @@ public class CertificatesActivity extends AppCompatActivity {
         Intent intentC = getIntent();
         if (intentC != null) {
             String tenBVGN = intentC.getStringExtra("bvgn");
-            String selectedBloodAmount =intentC.getStringExtra("selectedBloodAmount");
+            String selectedBloodAmount = intentC.getStringExtra("selectedBloodAmount");
             String ngayDangKy = intentC.getStringExtra("selectedDate");
 
             // Hiển thị dữ liệu trong các TextView
             tenBVGNTextView.setText(tenBVGN);
             amountOfBloodTextView.setText(selectedBloodAmount);
-            ngayDangKyTextView.setText("Ngày hiến máu: "+ ngayDangKy);
+            ngayDangKyTextView.setText("Ngày hiến máu: " + ngayDangKy);
         }
 
         backBtn = findViewById(R.id.backBtn);
@@ -45,9 +45,9 @@ public class CertificatesActivity extends AppCompatActivity {
         testBtn.setOnClickListener(view -> {
             Intent intent = new Intent(CertificatesActivity.this, CertificatesDetailActivity.class);
 
-            String selectedBloodAmount =getIntent().getStringExtra("selectedBloodAmount");
+            String selectedBloodAmount = getIntent().getStringExtra("selectedBloodAmount");
             String userEmail = getIntent().getStringExtra("signInEmail");
-            String tenBVGN=getIntent().getStringExtra("bvgn");
+            String tenBVGN = getIntent().getStringExtra("bvgn");
             String selectedDate = getIntent().getStringExtra("selectedDate");
 
             intent.putExtra("signInEmail", userEmail);

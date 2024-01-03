@@ -20,6 +20,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -38,6 +39,7 @@ public class ChooseHospitalsActivity extends AppCompatActivity implements OnMapR
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_hospitals);
 
+
         // Nhận dữ liệu từ Intent (nếu có)
         Intent intent = getIntent();
         if (intent != null) {
@@ -48,7 +50,6 @@ public class ChooseHospitalsActivity extends AppCompatActivity implements OnMapR
 
             rectangle1Button = findViewById(R.id.rectangle_1);
             String selectedDate = getIntent().getStringExtra("selectedDate");
-
 
 
             TextView tenBVGNTextView = findViewById(R.id.bvgn);
@@ -74,17 +75,24 @@ public class ChooseHospitalsActivity extends AppCompatActivity implements OnMapR
             @Override
             public void onClick(View view) {
                 // Create an Intent to start CertificatesActivity
-                String selectedBloodAmount =getIntent().getStringExtra("selectedBloodAmount");
-                String tenBVGN = intent.getStringExtra("bvgn");
+                String selectedBloodAmount = getIntent().getStringExtra("selectedBloodAmount");
                 String selectedDate = getIntent().getStringExtra("selectedDate");
-                Intent certificatesIntent = new Intent(ChooseHospitalsActivity.this, SelectBloodActivity.class);
-                String userEmail = getIntent().getStringExtra("signInEmail");
                 String diaChiBVGN = getIntent().getStringExtra("diachi_bvgn");
+                String tenBVGN = intent.getStringExtra("bvgn");
+                String eventId = intent.getStringExtra("eventId");
+
+                Intent certificatesIntent = new Intent(ChooseHospitalsActivity.this, SelectBloodActivity.class);
+
+                certificatesIntent.putExtra("eventId", eventId);
                 certificatesIntent.putExtra("diachi_bvgn", diaChiBVGN);
-                certificatesIntent.putExtra("signInEmail", userEmail);
                 certificatesIntent.putExtra("bvgn", tenBVGN);
                 certificatesIntent.putExtra("selectedDate", selectedDate);
                 certificatesIntent.putExtra("selectedBloodAmount", selectedBloodAmount);
+
+
+
+
+
                 startActivity(certificatesIntent);
             }
         });
@@ -96,9 +104,6 @@ public class ChooseHospitalsActivity extends AppCompatActivity implements OnMapR
     }
 
     // lưu ý địa điểm mặc định
-
-
-
 
 
     @Override
@@ -119,7 +124,6 @@ public class ChooseHospitalsActivity extends AppCompatActivity implements OnMapR
     }
 
 
-
     private List<String> getTimeSlots() {
         List<String> timeSlots = new ArrayList<>();
         timeSlots.add("8:00 AM");
@@ -127,6 +131,7 @@ public class ChooseHospitalsActivity extends AppCompatActivity implements OnMapR
         timeSlots.add("2:00 PM");
         return timeSlots;
     }
+
     private void updateSoNguoiDangKyFirestore(String tenBVGN, int soNguoiDangKyMoi) {
         // Thực hiện cập nhật lên Firestore
         FirebaseFirestore db = FirebaseFirestore.getInstance();

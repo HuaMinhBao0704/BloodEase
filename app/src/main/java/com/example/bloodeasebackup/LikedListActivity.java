@@ -130,7 +130,7 @@ public class LikedListActivity extends AppCompatActivity {
                                     datLichButton.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View view) {
-                                            String selectedBloodAmount =getIntent().getStringExtra("selectedBloodAmount");
+                                            String selectedBloodAmount = getIntent().getStringExtra("selectedBloodAmount");
                                             String diaChiBVGN = document.getString("diachi_bvgn");
                                             // Create an Intent to start ChooseHospitalsActivity
                                             Intent chooseHospitalIntent = new Intent(LikedListActivity.this, ChooseHospitalsActivity.class);
@@ -138,13 +138,15 @@ public class LikedListActivity extends AppCompatActivity {
                                             chooseHospitalIntent.putExtra("signInEmail", userEmail);
                                             chooseHospitalIntent.putExtra("diachi_bvgn", diaChiBVGN);
                                             chooseHospitalIntent.putExtra("bvgn", tenBVGN);
+                                            chooseHospitalIntent.putExtra("eventId", documentId);
                                             chooseHospitalIntent.putExtra("selectedDate", selectedDate);
                                             chooseHospitalIntent.putExtra("selectedBloodAmount", selectedBloodAmount);
                                             chooseHospitalIntent.putExtra("vitri", viTriLatLng);
 
 
                                             if (so_nguoi_da_dang_ky instanceof Number) {
-                                                chooseHospitalIntent.putExtra("so_nguoi_da_dang_ky", ((Number) so_nguoi_da_dang_ky).intValue());}
+                                                chooseHospitalIntent.putExtra("so_nguoi_da_dang_ky", ((Number) so_nguoi_da_dang_ky).intValue());
+                                            }
                                             // Chuyển sang ChooseHospitalsActivity
                                             startActivity(chooseHospitalIntent);
                                         }
@@ -235,14 +237,13 @@ public class LikedListActivity extends AppCompatActivity {
     }
 
     private void showNoHospitalsAvailableMessage() {
-       // Toast.makeText(this, "Không có bệnh viện nào có lịch ngày hôm đó", Toast.LENGTH_SHORT).show();
+        // Toast.makeText(this, "Không có bệnh viện nào có lịch ngày hôm đó", Toast.LENGTH_SHORT).show();
     }
 
     private void loadImageFromUrl(String imgUrl, ImageView imageView) {
         Picasso.get().load(imgUrl).into(imageView);
     }
 }
-
 
 
 //package com.example.bloodeasebackup;
