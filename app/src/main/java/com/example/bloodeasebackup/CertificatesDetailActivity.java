@@ -12,7 +12,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.Firebase;
 import com.google.firebase.Timestamp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
@@ -21,6 +24,9 @@ import java.util.Locale;
 
 public class CertificatesDetailActivity extends AppCompatActivity {
     ImageView backBtn;
+
+    FirebaseAuth mAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +38,9 @@ public class CertificatesDetailActivity extends AppCompatActivity {
         TextView amountOfBloodTextView = findViewById(R.id.luongmauhien_cnhm);
         TextView ngayDangKyTextView = findViewById(R.id.dmyhienmau_cnhm);
         TextView emailView = findViewById(R.id.email);
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        String userEmail = currentUser.getEmail();
 
         // Nhận dữ liệu từ Intent
         Intent intentC = getIntent();
@@ -47,7 +56,7 @@ public class CertificatesDetailActivity extends AppCompatActivity {
             //ngayDangKyTextView.setText(ngayDangKy);
 
             // Lấy dữ liệu người dùng từ Firestore
-            String userEmail = userEmail1;
+            //String userEmail = userEmail1;
             Log.d(TAG, "testtt: " + userEmail1);// Thay đổi thành email đăng nhập
             getFirestoreUserData(userEmail);
             getFirestoreCertificatesData(userEmail);

@@ -14,6 +14,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.Timestamp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
@@ -22,6 +24,7 @@ import java.util.Locale;
 
 public class DeleteResultActivity extends AppCompatActivity {
     ImageView backBtn;
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,9 @@ public class DeleteResultActivity extends AppCompatActivity {
         TextView diachiTextView = findViewById(R.id.diachi);
         TextView noAppointmentMessage = findViewById(R.id.noAppointmentMessage);
         ImageView imglogo = findViewById(R.id.imglogo);
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        String userEmail = currentUser.getEmail();
         Button datlichBTN=findViewById(R.id.datlich);
 
         Intent intentC = getIntent();
@@ -47,7 +53,7 @@ public class DeleteResultActivity extends AppCompatActivity {
             diachiTextView.setText(diachiBVGN);
             ngayDangKyTextView.setText(ngayDangKy);
 
-            String userEmail = userEmail1;
+            //String userEmail = userEmail1;
             Log.d(TAG, "testtt: " + userEmail1);
             getFirestoreUserData(userEmail);
         }
@@ -124,4 +130,5 @@ public class DeleteResultActivity extends AppCompatActivity {
                     }
                 });
     }
+
 }

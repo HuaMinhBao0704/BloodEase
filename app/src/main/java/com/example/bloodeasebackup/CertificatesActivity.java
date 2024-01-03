@@ -10,6 +10,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.Timestamp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
@@ -20,6 +22,7 @@ public class CertificatesActivity extends AppCompatActivity {
 
     ImageView backBtn;
     TextView testBtn;
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,13 +49,16 @@ public class CertificatesActivity extends AppCompatActivity {
 
         backBtn = findViewById(R.id.backBtn);
         testBtn = findViewById(R.id.testBtn);
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        String userEmail = currentUser.getEmail();
 
         backBtn.setOnClickListener(view -> {
             getOnBackPressedDispatcher().onBackPressed();
         });
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
-            String userEmail = bundle.getString("signInEmail");
+            //String userEmail = bundle.getString("signInEmail");
             getFirestoreUserData(userEmail);
             getFirestoreCertificatesData(userEmail);
         }
@@ -61,7 +67,7 @@ public class CertificatesActivity extends AppCompatActivity {
             Intent intent = new Intent(CertificatesActivity.this, CertificatesDetailActivity.class);
             //Bundle bundle = getIntent().getExtras();
             if (bundle != null) {
-                String userEmail = bundle.getString("signInEmail");
+                //String userEmail = bundle.getString("signInEmail");
                 intent.putExtra("signInEmail", userEmail);
                 getFirestoreUserData(userEmail);
                 getFirestoreCertificatesData(userEmail);
