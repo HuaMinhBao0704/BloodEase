@@ -97,7 +97,7 @@ public class SignInActivity extends AppCompatActivity {
     /**
      * Email & Password Sign In handlers
      */
-    private void signInWithEmailAndPassword(String email, String password) {
+    void signInWithEmailAndPassword(String email, String password) {
         // [START sign_in_with_email]
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {

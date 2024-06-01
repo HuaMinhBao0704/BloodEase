@@ -122,7 +122,7 @@ public class EditProfileActivity extends AppCompatActivity {
     }
 
     // todo: editProfileOnFirestore (if profile exists => change info, if not => create it)
-    private void editProfileOnFirestore(String email, String phone, String fullName, String dob, String bloodGroup, String gender, String weight) throws ParseException {
+    void editProfileOnFirestore(String email, String phone, String fullName, String dob, String bloodGroup, String gender, String weight) throws ParseException {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         CollectionReference accountCollectionRef = db.collection("Accounts");
         Query accountQuery = accountCollectionRef.whereEqualTo("email", email);
@@ -172,7 +172,7 @@ public class EditProfileActivity extends AppCompatActivity {
     }
 
     // todo: validate Full name, birthday, blood group, phone, gender, weight
-    private boolean validateFullName() {
+    boolean validateFullName() {
         String profileFullNameVal = profileFullName.getText().toString();
 
         if (TextUtils.isEmpty(profileFullNameVal)) {
@@ -191,7 +191,7 @@ public class EditProfileActivity extends AppCompatActivity {
         return true;
     }
 
-    private boolean validateDob() {
+    boolean validateDob() {
         String profileDobVal = profileDob.getText().toString();
 
         if (TextUtils.isEmpty(profileDobVal)) {
@@ -202,7 +202,7 @@ public class EditProfileActivity extends AppCompatActivity {
         return true;
     }
 
-    private boolean validateBloodGroup() {
+    boolean validateBloodGroup() {
         String profileBloodGroupVal = profileBloodGroup.getText().toString();
         String[] validBloodGroups = {"","A", "B", "O", "AB+", "A+", "B+", "O+", "AB-", "A-", "B-", "O-"};
 
@@ -215,7 +215,7 @@ public class EditProfileActivity extends AppCompatActivity {
         return false;
     }
 
-    private boolean validatePhone() {
+    boolean validatePhone() {
         String profilePhoneVal = profilePhone.getText().toString();
 
         if (TextUtils.isEmpty(profilePhoneVal)) {
@@ -233,7 +233,7 @@ public class EditProfileActivity extends AppCompatActivity {
         return true;
     }
 
-    private boolean validateGender() {
+    boolean validateGender() {
         String profileGenderVal = profileGenderSpinner.getSelectedItem().toString();
         View genderSpinnerView = profileGenderSpinner.getSelectedView();
 
@@ -245,7 +245,7 @@ public class EditProfileActivity extends AppCompatActivity {
         return true;
     }
 
-    private boolean validateWeight() {
+    boolean validateWeight() {
         String profileWeightVal = profileWeight.getText().toString();
         if (TextUtils.isEmpty(profileWeightVal)) {
             profileWeight.setError("Weight cannot be empty");

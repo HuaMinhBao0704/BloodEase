@@ -32,7 +32,7 @@ public class SignUpActivity extends AppCompatActivity {
     TextView directToSignIn;
     EditText registerFullName, registerEmail, registerPassword, registerConfirmPassword;
     Button registerBtn, googleRegisterBtn;
-    private FirebaseAuth mAuth;
+    FirebaseAuth mAuth;
     FirebaseFirestore db;
     private static final String ACCOUNT_DB_TAG = "AccountsDB";
 
@@ -151,7 +151,7 @@ public class SignUpActivity extends AppCompatActivity {
                 });
     }
 
-    private void createAccount(String email, String password, String fullName) {
+    void createAccount(String email, String password, String fullName) {
         // [START create_user_with_email]
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {

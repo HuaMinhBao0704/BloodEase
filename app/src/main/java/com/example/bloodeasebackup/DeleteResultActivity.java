@@ -2,6 +2,7 @@ package com.example.bloodeasebackup;
 
 import static android.content.ContentValues.TAG;
 
+import android.accessibilityservice.TouchInteractionController;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -24,8 +25,10 @@ import java.text.SimpleDateFormat;
 import java.util.Locale;
 
 public class DeleteResultActivity extends AppCompatActivity {
+
     ImageView backBtn;
     FirebaseAuth mAuth;
+    FirebaseFirestore firestore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,9 @@ public class DeleteResultActivity extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         String userEmail = currentUser.getEmail();
         Button datlichBTN=findViewById(R.id.datlich);
+
+
+
 
         Intent intentC = getIntent();
         if (intentC != null) {
@@ -78,6 +84,12 @@ public class DeleteResultActivity extends AppCompatActivity {
         });
 
         Button confirmButton = findViewById(R.id.confirmButton);
+        confirmButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onConfirmButtonClick(v);
+            }
+        });
 
         Button finalDatlichBTN = datlichBTN;
         confirmButton.setOnClickListener(view -> {
@@ -90,6 +102,7 @@ public class DeleteResultActivity extends AppCompatActivity {
             finalDatlichBTN.setVisibility(View.VISIBLE);
         });
     }
+
 
     private void hideAllContent() {
         // Ẩn tất cả nội dung có sẵn
@@ -166,4 +179,8 @@ public class DeleteResultActivity extends AppCompatActivity {
                 });
     }
 
+    public void onConfirmButtonClick(View v) {
+        String documentId = "mockDocumentId"; // Replace with actual logic to get the document ID
+        firestore.collection("certificates").document(documentId).delete();
+    }
 }

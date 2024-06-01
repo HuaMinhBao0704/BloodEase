@@ -156,14 +156,14 @@ public class CertificatesActivity extends AppCompatActivity {
 
 
 
-                                    String selectedBloodAmount =getIntent().getStringExtra("selectedBloodAmount");
-                                    //String userEmail = getIntent().getStringExtra("signInEmail");
-                                    String tenBVGN=getIntent().getStringExtra("bvgn");
-                                    String selectedDate = getIntent().getStringExtra("selectedDate");
-
-                                    intent.putExtra("bvgn", tenBVGN);
-                                    intent.putExtra("selectedDate", selectedDate);
-                                    intent.putExtra("selectedBloodAmount", selectedBloodAmount);
+//                                    String selectedBloodAmount =getIntent().getStringExtra("selectedBloodAmount");
+//                                    //String userEmail = getIntent().getStringExtra("signInEmail");
+//                                    String tenBVGN=getIntent().getStringExtra("bvgn");
+//                                    String selectedDate = getIntent().getStringExtra("selectedDate");
+//
+//                                    intent.putExtra("bvgn", tenBVGN);
+//                                    intent.putExtra("selectedDate", selectedDate);
+//                                    intent.putExtra("selectedBloodAmount", selectedBloodAmount);
 
                                     startActivity(intent);
                                 });

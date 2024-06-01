@@ -43,12 +43,12 @@ public class CertificatesDetailActivity extends AppCompatActivity {
         String userEmail = currentUser.getEmail();
 
         // Nhận dữ liệu từ Intent
-        Intent intentC = getIntent();
-        if (intentC != null) {
+        //Intent intentC = getIntent();
+        //if (intentC != null) {
             //String tenBVGN = intentC.getStringExtra("bvgn");
             //String selectedBloodAmount = intentC.getStringExtra("selectedBloodAmount");
             //String ngayDangKy = intentC.getStringExtra("selectedDate");
-            String userEmail1 = getIntent().getStringExtra("signInEmail");
+            //String userEmail1 = getIntent().getStringExtra("signInEmail");
 
             // Hiển thị dữ liệu trong các TextView
             //tenBVGNTextView.setText(tenBVGN);
@@ -57,10 +57,10 @@ public class CertificatesDetailActivity extends AppCompatActivity {
 
             // Lấy dữ liệu người dùng từ Firestore
             //String userEmail = userEmail1;
-            Log.d(TAG, "testtt: " + userEmail1);// Thay đổi thành email đăng nhập
+            //Log.d(TAG, "testtt: " + userEmail1);// Thay đổi thành email đăng nhập
             getFirestoreUserData(userEmail);
             getFirestoreCertificatesData(userEmail);
-        }
+        //}
 
         backBtn = findViewById(R.id.backBtn);
 
@@ -126,7 +126,7 @@ public class CertificatesDetailActivity extends AppCompatActivity {
                             String benhvien = document.getString("bvgn");
                             String amount = document.getString("amount");
                             String eventId= document.getString("eventId");
-                            String blood= document.getString("blood");
+                            //String blood= document.getString("blood");
                             boolean isVerified = document.getBoolean("isVerified");
                             Timestamp ngaydangky = document.getTimestamp("date");
                             String ngayChonFirestore = ngaydangky != null ?
